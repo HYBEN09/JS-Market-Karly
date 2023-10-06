@@ -1,0 +1,33 @@
+/* Top banner */
+.top_banner {
+  display: block;
+  background-color: var(--primary);
+  text-align: center;
+}
+
+.banner--inner p,
+.banner--inner b {
+  color: var(--white);
+}
+
+.banner--inner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner--inner p {
+  flex-grow: 1;
+  font-size: var(--text-sm);
+}
+
+.banner--inner b {
+  font-weight: 600;
+}
+
+.banner--close__btn {
+  background-color: transparent;
+  border: none;
+  outline-offset: -5px;
+}
