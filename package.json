@@ -10,6 +10,18 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "eslint": "8.50.0",
     "vite": "^4.4.5"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "시맨틱 마크업",
+    "웹표준",
+    "함수형 프로그래밍"
+  ],
+  "dependencies": {
+    "prettier": "3.0.3"
   }
 }
