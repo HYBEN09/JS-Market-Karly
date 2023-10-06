@@ -1,33 +1,11 @@
-/* Top banner */
-.top_banner {
-  display: block;
-  background-color: var(--primary);
-  text-align: center;
-}
+/* Base Settings */
+@import url(./base/nomalize.css);
+@import url(./base/reset.css);
+@import url(./base/a11y.css);
+@import url(./base/root.css);
+@import url(./base/base.css);
 
-.banner--inner p,
-.banner--inner b {
-  color: var(--white);
-}
+/* Components */
+@import url(./components/header.css);
 
-.banner--inner {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.banner--inner p {
-  flex-grow: 1;
-  font-size: var(--text-sm);
-}
-
-.banner--inner b {
-  font-weight: 600;
-}
-
-.banner--close__btn {
-  background-color: transparent;
-  border: none;
-  outline-offset: -5px;
-}
+/* Pages */

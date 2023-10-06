@@ -1,0 +1,232 @@
+/* Top banner */
+.top-banner {
+  display: block;
+  background-color: var(--primary);
+  text-align: center;
+}
+
+.top-banner__inner p,
+.top-banner__inner b {
+  color: var(--white);
+}
+
+.top-banner__inner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-banner__inner p {
+  flex-grow: 1;
+  font-size: var(--text-sm);
+}
+
+.top-banner__inner b {
+  font-weight: 600;
+}
+
+.top-banner__close-btn {
+  background-color: transparent;
+  border: none;
+  outline-offset: -5px;
+}
+
+/* ------------------------------ Header Start ------------------------------ */
+.header {
+  position: relative;
+  width: 1050px;
+  height: 100px;
+  margin: 0 auto;
+  letter-spacing: -0.3px;
+}
+
+.header__outer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  padding: 4px;
+}
+
+.header__nav-link {
+  display: block;
+  color: var(--gray-700);
+  cursor: pointer;
+  position: relative;
+  margin-top: 4px;
+}
+
+.header__separator {
+  width: 1px;
+  height: 13px;
+  margin: 0 12px;
+  background-color: var(--gray-300);
+}
+
+.header__arrow-down {
+  width: 8px;
+  height: 5px;
+  background-image: url('/assets/icons/down.svg');
+  background-size: cover;
+  background-position: center center;
+  display: inline-block;
+  margin-left: 5px;
+  margin-bottom: 1px;
+}
+
+.header__dropdown.menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 34px;
+  width: 130px;
+  padding: 8px 15px;
+  border-radius: 4px;
+  border: 1px solid var(--gray-100);
+  background-color: var(--white: );
+  z-index: 9999;
+}
+
+.header__dropdown.menu:hover {
+  display: block;
+  font-weight: 500;
+}
+
+.header__dropdown-link:hover {
+  color: var(--gray-600);
+}
+
+.header__inner {
+  height: 100px;
+  padding-top: 36px;
+}
+
+.header__logo {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 63px;
+}
+
+.karly__logo {
+  flex: 0 0 82px;
+}
+
+.market__button {
+  flex-shrink: 0;
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  color: var(--gray-300);
+  cursor: pointer;
+  background-color: transparent;
+}
+.market__button:hover,
+.market__button:active {
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.market__button::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 14px;
+  margin-top: 5px;
+  margin-left: 11px;
+  background-color: var(--gray-100);
+}
+
+.beauty__button {
+  flex-shrink: 0;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  color: var(--gray-300);
+  cursor: pointer;
+  position: relative;
+  margin-left: 22px;
+  background-color: transparent;
+}
+
+.beauty__button:hover,
+.beauty__button:active {
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.beauty__button::after {
+  content: '';
+  position: absolute;
+  display: block;
+  background: url('/assets/icons/new.svg') 0px 0px no-repeat;
+  width: 10px;
+  height: 10px;
+  top: 3px;
+  right: -13px;
+}
+
+.header__search {
+  position: relative;
+  width: 1050px;
+  margin: 0px auto;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  left: 325px;
+  top: -55px;
+  width: 400px;
+  height: 48px;
+  padding-left: 14px;
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+  background-color: var(--white);
+  box-shadow: var(--gray-50) 0px 0px 0px 1px inset;
+}
+
+.search__input {
+  width: 300px;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  letter-spacing: -0.33px;
+}
+
+.search__button {
+  position: relative;
+  width: 30px;
+  height: 20px;
+  margin: 10px;
+  background: url('../../assets/icons/search.svg') 0px 0px no-repeat;
+}
+
+.header__icon {
+  position: relative;
+  width: 1050px;
+  margin: 0px auto;
+}
+
+.icon__list {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: -6px;
+  top: -49px;
+}
+
+.icon__item {
+  cursor: pointer;
+  margin-left: 20px;
+}
