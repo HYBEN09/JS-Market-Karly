@@ -7,7 +7,7 @@
     <meta name="description" content="자바스크립트로 마켓 컬리 구현" />
     <link rel="stylesheet" href="./client/css/style.css" />
     <title>Market Karly</title>
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./client/js/index.js"></script>
   </head>
   <body>
     <!-- -------------------------- Top banner start --------------------------- -->
@@ -109,5 +109,45 @@
         </div>
       </div>
     </header>
+
+    <!-- ---------------------------- Navigation start ----------------------------- -->
+    <nav class="navigation common">
+      <div class="nav-box">
+        <h2 class="a11yHidden">메인 메뉴</h2>
+        <ul class="nav-menu__list">
+          <li type="button" class="nav-menu__item">
+            <div type="button" class="nav-toggle-btn">
+              <img
+                src="client/assets/icons/navigation-Icon/Vector.svg"
+                alt="카테고리 버튼"
+                class="button--burger"
+                tabindex="0"
+              />
+              <span class="category__txt">카테고리</span>
+            </div>
+            <h2 class="a11yHidden">하위메뉴</h2>
+            <ul class="nav-sub-menu" hidden></ul>
+          </li>
+        </ul>
+
+        <!-- 메뉴 리스트 -->
+        <li class="nav-menu__item">
+          <a href="#" class="menu__link">신상품</a>
+        </li>
+        <li class="nav-menu__item">
+          <a href="#" class="menu__link">베스트</a>
+        </li>
+        <li class="nav-menu__item">
+          <a href="#" class="menu__link">알뜰쇼핑</a>
+        </li>
+        <li class="nav-menu__item">
+          <a href="#" class="menu__link">특가/혜택</a>
+        </li>
+
+        <button type="button" class="notice-btn">
+          <span class="notice__text"> 샛별·낮</span> 배송안내
+        </button>
+      </div>
+    </nav>
   </body>
 </html>
