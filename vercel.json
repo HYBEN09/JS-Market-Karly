@@ -1,6 +1,12 @@
 {
   "rewrites": [
-    { "source": "/login", "destination": "/client/pages/login.html" },
-    { "source": "/register", "destination": "/client/pages/register.html" }
+    {
+      "source": "/client/pages/login.html",
+      "destination": "https://js-market-karly.vercel.app/login"
+    },
+    {
+      "source": "/client/pages/register.html",
+      "destination": "https://js-market-karly.vercel.app/register"
+    }
   ]
 }
