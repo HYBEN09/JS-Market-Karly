@@ -1,88 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko-KR">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="로그인 구현" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>로그인</title>
-    <link rel="stylesheet" href="./css/pages/login.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <script src="./js/page/login.js" type="module"></script>
-    <script src="./js/main/dropDown.js" type="module"></script>
+    <title>로그인 - 칼리</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/components/dropDown.js" type="module"></script>
   </head>
   <body>
-    <!-- Top banner start -->
-    <div class="top_banner">
-      <div class="banner--inner">
+    <!-- -------------------------- Top banner start --------------------------- -->
+    <div class="top-banner">
+      <div class="top-banner__inner">
         <p>지금 가입하고 인기상품 <b>100원</b>에 받아가세요!</p>
-        <button type="button" class="banner--close__btn">
-          <img src="./assets/headericons/ico_close.svg" alt="닫기 버튼" />
+        <button
+          type="button"
+          class="top-banner__close-btn"
+          aria-label="배너 닫기"
+        >
+          <img src="/assets/icons/ico_close.svg" alt="" />
         </button>
       </div>
     </div>
-    <!-- Top banner End -->
+
+    <!-- ---------------------------- Header start ----------------------------- -->
     <header class="header">
-      <div class="header--main">
-        <h1 class="a11yHidden">마켓컬리</h1>
-        <div class="header-main-link-list">
-          <a href="./index.html">
-            <img
-              src="./assets/headericons/logo.svg"
-              alt="마켓칼리 로고"
-              class="header--main-logo"
-            />
+      <div class="header__outer">
+        <a href="./register.html" class="header__nav-link">회원가입</a>
+        <div class="header__separator"></div>
+        <a href="./views/login.html" class="header__nav-link">로그인</a>
+        <div class="header__separator"></div>
+        <a href="#" class="header__nav-link" id="menu-toggle"
+          >고객센터 <span class="header__arrow-down"></span
+        ></a>
+        <ul class="header__dropdown menu">
+          <li><a href="#" class="header__dropdown-link">공지 사항</a></li>
+          <li><a href="#" class="header__dropdown-link">자주하는 질문</a></li>
+          <li><a href="#" class="header__dropdown-link">1:1 문의</a></li>
+          <li><a href="#" class="header__dropdown-link">대량주문 문의</a></li>
+        </ul>
+      </div>
+
+      <div class="header__inner">
+        <div class="header__logo">
+          <a href="index.html" class="karly__logo" aria-label="마켓컬리 로고">
+            <h1>
+              <img src="/assets/icons/logo.svg" alt="마켓컬리 로고" />
+            </h1>
           </a>
-          <a href="#" class="is-active">마켓칼리</a>
-          <a href="#">뷰티칼리</a>
-          <img
-            src="./assets/headericons/new.svg"
-            alt="new 아이콘"
-            class="new-badge"
-          />
+          <button type="button" class="market__button">
+            <a href="#" class="market__link" tabindex="-1">마켓컬리</a>
+          </button>
+          <button type="button" class="beauty__button">
+            <a href="#" class="beauty__link" tabindex="-1">뷰티컬리</a>
+          </button>
         </div>
-        <div class="flex-container">
-          <div>
+
+        <form class="header__search">
+          <div class="search">
             <input
-              type="search"
-              class="header--main-search"
+              type="text"
+              class="search__input"
+              required
               placeholder="검색어를 입력해주세요"
             />
-            <img
-              class="header--main-search-icon"
-              src="./assets/headericons/search.svg"
-              alt="검색하기"
-            />
+            <button
+              type="submit"
+              class="search__button"
+              aria-label="찾기 버튼"
+            ></button>
           </div>
-          <div class="header--main-icons">
-            <a href="#"
-              ><img src="./assets/headericons/location.svg" alt="지역 로고"
-            /></a>
+        </form>
 
-            <a href="#"
-              ><img src="./assets/headericons/heart.svg" alt="찜하기"
-            /></a>
-
-            <a href="./cart.html"
-              ><img src="./assets/headericons/cart.svg" alt="장바구니"
-            /></a>
-          </div>
+        <div class="header__icon">
+          <ul class="icon__list">
+            <li class="icon__item icon__item--location">
+              <a href="#" class="icon__link icon__link--location"
+                ><img
+                  src="/assets/icons/location.svg"
+                  alt="배송지 등록"
+                  width="36"
+                  height="36"
+                />
+              </a>
+            </li>
+            <li class="icon__item icon__item--good">
+              <a href="#" class="icon__link icon__link--good"
+                ><img
+                  src="/assets/icons/heart.svg"
+                  alt="찜"
+                  width="36"
+                  height="36"
+                />
+              </a>
+            </li>
+            <li class="icon__item icon__item--basket">
+              <a href="#" class="icon__link icon__link--basket">
+                <img
+                  src="/assets/icons/cart.svg"
+                  alt="장바구니"
+                  width="36"
+                  height="36"
+                />
+              </a>
+            </li>
+          </ul>
         </div>
-
-        <ul class="header--member">
-          <li><a href="./register.html" class="is-active">회원가입</a></li>
-          <li><a href="./login.html">로그인</a></li>
-          <li>
-            <a href="/"
-              >고객센터
-              <img src="./assets/headericons/down.svg" alt="드롭다운 아이콘"
-            /></a>
-          </li>
-        </ul>
       </div>
     </header>
 
-    <!-- navigation Start -->
+    <!-- ---------------------------- Navigation start ----------------------------- -->
     <nav class="navigation common">
       <div class="nav-box">
         <h2 class="a11yHidden">메인 메뉴</h2>
@@ -90,7 +118,7 @@
           <li type="button" class="nav-menu__item">
             <div type="button" class="nav-toggle-btn">
               <img
-                src="./assets/icons/navigation-Icon/Vector.svg"
+                src="/assets/icons/navigation-Icon/Vector.svg"
                 alt="카테고리 버튼"
                 class="button--burger"
                 tabindex="0"
@@ -98,185 +126,7 @@
               <span class="category__txt">카테고리</span>
             </div>
             <h2 class="a11yHidden">하위메뉴</h2>
-            <ul class="nav-sub-menu" hidden>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon.svg"
-                    alt="메뉴 아이콘"
-                  />선물하기</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-1.svg"
-                    alt="메뉴 아이콘"
-                  />채소</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-2.svg"
-                    alt="메뉴 아이콘"
-                  />과일 · 견과 · 쌀</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-3.svg"
-                    alt="메뉴 아이콘"
-                  />수산 · 해산 · 건어물</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-4.svg"
-                    alt="메뉴 아이콘"
-                  />정육 · 계란</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-5.svg"
-                    alt="메뉴 아이콘"
-                  />국 · 반찬 · 메인요리</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-6.svg"
-                    alt="메뉴 아이콘"
-                  />샐러드 · 간편식</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-7.svg"
-                    alt="메뉴 아이콘"
-                  />면 · 양념 · 오일</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-8.svg"
-                    alt="메뉴 아이콘"
-                  />생수 · 음료 · 우유 · 커피</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-9.svg"
-                    alt="메뉴 아이콘"
-                  />간식 · 과자 · 떡</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-10.svg"
-                    alt="메뉴 아이콘"
-                  />베이커리 · 치즈 · 델리</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-11.svg"
-                    alt="메뉴 아이콘"
-                  />건강식품</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-12.svg"
-                    alt="메뉴 아이콘"
-                  />와인</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-13.svg"
-                    alt="메뉴 아이콘"
-                  />전통주</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-14.svg"
-                    alt="메뉴 아이콘"
-                  />생활용품 · 리빙 · 캠핑</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-15.svg"
-                    alt="메뉴 아이콘"
-                  />스킨케어 · 메이크업</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-16.svg"
-                    alt="메뉴 아이콘"
-                  />헤어 · 바디 · 구강</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-17.svg"
-                    alt="메뉴 아이콘"
-                  />주방용품</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-18.svg"
-                    alt="메뉴 아이콘"
-                  />가전제품</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-19.svg"
-                    alt="메뉴 아이콘"
-                  />반려동물</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-20.svg"
-                    alt="메뉴 아이콘"
-                  />
-                  베이비 · 키즈 · 완구</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/navigation-Icon/Icon-21.svg"
-                    alt="메뉴 아이콘"
-                  />여행 · 티켓</a
-                >
-              </li>
-            </ul>
+            <ul class="nav-sub-menu" hidden></ul>
           </li>
         </ul>
 
@@ -285,7 +135,7 @@
           <a href="#" class="menu__link">신상품</a>
         </li>
         <li class="nav-menu__item">
-          <a href="./product_list.html" class="menu__link">베스트</a>
+          <a href="#" class="menu__link">베스트</a>
         </li>
         <li class="nav-menu__item">
           <a href="#" class="menu__link">알뜰쇼핑</a>
@@ -299,7 +149,9 @@
         </button>
       </div>
     </nav>
-    <!-- navigation End -->
+
+    <!-- ----------------------------- Login Start ----------------------------- -->
+
     <section class="main__section login-section">
       <div class="login-main">
         <h2 class="login--title">로그인</h2>
@@ -343,7 +195,8 @@
         </form>
       </div>
     </section>
-    <!-- footer Start -->
+
+    <!-- ---------------------------- Footer start ----------------------------- -->
     <footer class="footer common">
       <section class="footer-inner">
         <div class="footer-top">
@@ -476,7 +329,7 @@
                 rel="noreferrer"
                 class="about-icon"
                 ><img
-                  src="./assets/icons/footer-icon/Blog.svg"
+                  src="/assets/icons/footer-icon/Blog.svg"
                   alt="칼리 네이버블로그 바로가기"
               /></a>
 
@@ -486,7 +339,7 @@
                 rel="noreferrer"
                 class="about-icon"
                 ><img
-                  src="./assets/icons/footer-icon/FaceBook.svg"
+                  src="/assets/icons/footer-icon/FaceBook.svg"
                   alt="칼리 페이스북 바로가기"
               /></a>
 
@@ -496,7 +349,7 @@
                 rel="noreferrer"
                 class="about-icon"
                 ><img
-                  src="./assets/icons/footer-icon/Instagram.svg"
+                  src="/assets/icons/footer-icon/Instagram.svg"
                   alt="칼리 인스타그램 바로가기"
               /></a>
 
@@ -506,7 +359,7 @@
                 rel="noreferrer"
                 class="about-icon"
                 ><img
-                  src="./assets/icons/footer-icon/NaverPost.svg"
+                  src="/assets/icons/footer-icon/NaverPost.svg"
                   alt="칼리 네이버포스트 바로가기"
               /></a>
 
@@ -516,7 +369,7 @@
                 rel="noreferrer"
                 class="about-icon"
                 ><img
-                  src="./assets/icons/footer-icon/Youtube.svg"
+                  src="/assets/icons/footer-icon/Youtube.svg"
                   alt="칼리 유튜브 바로가기"
               /></a>
             </ul>
@@ -526,7 +379,7 @@
         <div class="footer-middle">
           <button class="middle-button">
             <img
-              src="./assets/icons/footer-icon/logo_isms.svg"
+              src="/assets/icons/footer-icon/logo_isms.svg"
               alt="isms 로고"
               class="middle-logo1"
             />
@@ -539,7 +392,7 @@
 
           <button class="middle-button">
             <img
-              src="./assets/icons/footer-icon/logo_privacy.svg"
+              src="/assets/icons/footer-icon/logo_privacy.svg"
               alt="eprivacy plus 로고"
               class="middle-logo1"
             />
@@ -551,7 +404,7 @@
 
           <button class="middle-button">
             <img
-              src="./assets/icons/footer-icon/logo_tosspayments.svg"
+              src="/assets/icons/footer-icon/logo_tosspayments.svg"
               alt="payments 로고"
               class="middle-logo2"
             />
@@ -563,7 +416,7 @@
 
           <button class="middle-button">
             <img
-              src="./assets/icons/footer-icon/logo_wooriBank.svg"
+              src="/assets/icons/footer-icon/logo_wooriBank.svg"
               alt="우리은행 로고"
               class="middle-logo3"
             />
@@ -591,6 +444,5 @@
         </div>
       </section>
     </footer>
-    <!-- footer End -->
   </body>
 </html>
