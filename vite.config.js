@@ -4,7 +4,7 @@ import path from 'path';
 export default defineConfig({
   root: 'client',
   build: {
-    outDir: path.resolve(__dirname, '../dist'),
+    outDir: '../dist',
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'client/index.html'),
