@@ -182,13 +182,17 @@ bindEvent(addressButton, 'click', findAddr);
 const signUpButton = getNode('.sign-button');
 
 function saveUserInfo() {
-  // 아이디, 이름 정보 가져오기
   const userIdValue = userId.value;
   const userNameValue = userName.value;
+  const userPwValue = userPw.value;
 
-  // 로컬 스토리지에 정보 저장
-  localStorage.setItem('userId', userIdValue);
-  localStorage.setItem('userName', userNameValue);
+  const userInfo = {
+    id: userIdValue,
+    name: userNameValue,
+    password: userPwValue,
+  };
+
+  localStorage.setItem('User', JSON.stringify(userInfo));
 
   alert('회원가입이 완료되었습니다.');
 }
