@@ -1,3 +1,6 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "rewrites": [
+    { "source": "/login", "destination": "/client/pages/login.html" },
+    { "source": "/register", "destination": "/client/pages/register.html" }
+  ]
 }
