@@ -10,6 +10,12 @@ export default defineConfig({
         main: path.resolve(__dirname, 'client/index.html'),
         login: path.resolve(__dirname, 'client/pages/login.html'),
         register: path.resolve(__dirname, 'client/pages/register.html'),
+        productList: path.resolve(__dirname, 'client/pages/productList.html'),
+        productDetail: path.resolve(
+          __dirname,
+          'client/pages/productDetail.html'
+        ),
+        specialPrice: path.resolve(__dirname, 'client/pages/specialPrice.html'),
       },
     },
   },
