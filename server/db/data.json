@@ -8,13 +8,16 @@
       "saleRatio": 0.24,
       "salePrice": 5244,
       "image": {
-        "thumbnail": "ubuho/thumbnail.jpg",
-        "view": "ubuho/detail_view.jpg",
-        "banner": "ubuho/detail_banner.jpg",
-        "info": "ubuho/detail_info.jpg",
+        "thumbnail": "../../assets/product/ubuho/thumbnail.jpg",
+        "view": "../../assets/product/ubuho/detail_view.jpg",
+        "banner": "../../assets/product/ubuho/detail_banner.jpg",
+        "info": "../../assets/product/ubuho/detail_info.jpg",
         "alt": "유부호 만두"
       },
-      "stock": 3
+      "stock": 3,
+      "category": "샐러드ㆍ간편식",
+      "kalryOnly": "false",
+      "brand": "대구 반할만떡"
     },
     {
       "id": "product-ekfk",
@@ -24,29 +27,35 @@
       "saleRatio": 0,
       "salePrice": 0,
       "image": {
-        "thumbnail": "tangtang/thumbnail.jpg",
-        "view": "tangtang/detail_view.jpg",
-        "banner": "tangtang/detail_banner.jpg",
-        "info": "tangtang/detail_info.jpg",
+        "thumbnail": "../../assets/product/tangtang/thumbnail.jpg",
+        "view": "../../assets/product/tangtang/detail_view.jpg",
+        "banner": "../../assets/product/tangtang/detail_banner.jpg",
+        "info": "../../assets/product/tangtang/detail_info.jpg",
         "alt": "풀무원 탱탱쫄면"
       },
-      "stock": 10
+      "stock": 10,
+      "category": "샐러드ㆍ간편식",
+      "kalryOnly": "false",
+      "brand": "풀무원"
     },
     {
       "id": "product-akqk",
-      "name": "[홍대주꾸미] 주꾸미 볶음 300g (냉동)",
+      "name": "[홍대주꾸미] 주꾸미 볶음 300g",
       "description": "매콤달콤한 마력의 밥도둑",
       "price": 7900,
       "saleRatio": 0.13,
       "salePrice": 6800,
       "image": {
-        "thumbnail": "jukkumi/thumbnail.jpg",
-        "view": "jukkumi/detail_view.jpg",
-        "banner": "jukkumi/detail_banner.jpg",
-        "info": "jukkumi/detail_info.jpg",
+        "thumbnail": "../../assets/product/jukkumi/thumbnail.jpg",
+        "view": "../../assets/product/jukkumi/detail_view.jpg",
+        "banner": "../../assets/product/jukkumi/detail_banner.jpg",
+        "info": "../../assets/product/jukkumi/detail_info.jpg",
         "alt": "홍대 주꾸미"
       },
-      "stock": 8
+      "stock": 8,
+      "category": "수산ㆍ해산ㆍ건어물",
+      "kalryOnly": "true",
+      "brand": "홍대주꾸미"
     },
     {
       "id": "product-tkwk",
@@ -56,13 +65,16 @@
       "saleRatio": 0,
       "salePrice": 0,
       "image": {
-        "thumbnail": "kangnam/thumbnail.jpg",
-        "view": "kangnam/detail_view.jpg",
-        "banner": "kangnam/detail_banner.jpg",
-        "info": "kangnam/detail_info.jpg",
+        "thumbnail": "../../assets/product/kangnam/thumbnail.jpg",
+        "view": "../../assets/product/kangnam/detail_view.jpg",
+        "banner": "../../assets/product/kangnam/detail_banner.jpg",
+        "info": "../../assets/product/kangnam/detail_info.jpg",
         "alt": "강남면옥 소갈비찜"
       },
-      "stock": 2
+      "stock": 2,
+      "category": "국ㆍ반찬ㆍ메인요리",
+      "kalryOnly": "true",
+      "brand": "강남면옥"
     },
     {
       "id": "product-ckzk",
@@ -72,13 +84,92 @@
       "saleRatio": 0.25,
       "salePrice": 3375,
       "image": {
-        "thumbnail": "bacon/thumbnail.jpg",
-        "view": "bacon/detail_view.jpg",
-        "banner": "bacon/detail_banner.jpg",
-        "info": "bacon/detail_info.jpg",
+        "thumbnail": "../../assets/product/bacon/thumbnail.jpg",
+        "view": "../../assets/product/bacon/detail_view.jpg",
+        "banner": "../../assets/product/bacon/detail_banner.jpg",
+        "info": "../../assets/product/bacon/detail_info.jpg",
         "alt": "칼리 한돈 삼겹 베이컨"
       },
-      "stock": 13
+      "stock": 13,
+      "category": "정육ㆍ계란",
+      "kalryOnly": "true",
+      "brand": "Kalry's"
+    },
+    {
+      "id": "product-aaaa",
+      "name": "유명산지 설향딸기 500g",
+      "description": "유명산지에서 전하는 제철 딸기",
+      "price": 11900,
+      "saleRatio": 0.07,
+      "salePrice": 10990,
+      "image": {
+        "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1608801577622l0.jpg",
+        "view": "bacon/detail-view.jpg",
+        "banner": "bacon/detail_banner.jpg",
+        "info": "bacon/detail_info.jpg",
+        "alt": "유명산지 설향딸기 500g"
+      },
+      "stock": 13,
+      "category": "과일ㆍ견과ㆍ쌀",
+      "kalryOnly": "false",
+      "brand": "유명산지"
+    },
+    {
+      "id": "product-aaab",
+      "name": "[Kalry's] 양념 소불고기 1kg (냉장)",
+      "description": "100g당 가격: 1,899원",
+      "price": 19990,
+      "saleRatio": 0.05,
+      "salePrice": 18990,
+      "image": {
+        "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/165304027922l0.jpg",
+        "view": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/165304027922l0.jpg",
+        "banner": "https://img-cf.kurly.com/shop/data/goodsview/20210804/gv00000208742_1.jpg",
+        "info": "https://img-cf.kurly.com/shop/data/goodsview/20230711/gv40000709973_1.jpg",
+        "alt": "양념 소불고기 1kg (냉장)"
+      },
+      "stock": 4,
+      "category": "정육ㆍ계란",
+      "kalryOnly": "true",
+      "brand": "Kalry's"
+    },
+    {
+      "id": "product-aaaj",
+      "name": "[스윗밸런스] 오늘의 샐러드 10종",
+      "description": "다채로운 토핑을 얹은 샐러드",
+      "price": 4900,
+      "saleRatio": 0,
+      "salePrice": 0,
+      "image": {
+        "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1655775819130l0.jpg",
+        "view": "bacon/detail-view.jpg",
+        "banner": "bacon/detail_banner.jpg",
+        "info": "bacon/detail_info.jpg",
+        "alt": " 오늘의 샐러드"
+      },
+      "stock": 6,
+      "category": "샐러드ㆍ간편식",
+      "kalryOnly": "false",
+      "brand": "스윗밸런스"
+    },
+    {
+      "id": "product-aaai",
+      "name": "[김구원선생] 우삼겹 순두부찌개",
+      "description": "국산 두부와 우삼겹의 고소한 만남",
+      "price": 8450,
+      "saleRatio": 0,
+      "salePrice": 0,
+      "image": {
+        "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1637922517478l0.jpg",
+        "view": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1637922517478l0.jpg",
+        "banner": "https://img-cf.kurly.com/shop/data/goodsview/20210419/gv20000174404_1.jpg",
+        "info": "https://img-cf.kurly.com/shop/data/goodsview/20220412/gv20000301483_1.jpg",
+        "alt": "우삼겹 순두부찌개"
+      },
+      "stock": 13,
+      "category": "국·반찬·메인요리",
+      "kalryOnly": "true",
+      "brand": "김구원선생"
     }
   ]
 }
