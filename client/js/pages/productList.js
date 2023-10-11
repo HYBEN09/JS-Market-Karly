@@ -53,13 +53,18 @@ function generateProductHTML(product) {
     : '';
 
   const priceInfo = product.saleRatio
-    ? `
-    <dd class="best__price"> ${Math.floor(
-      product.price * (1 - product.saleRatio)
-    )}원</dd>
-    <dd class="best__price"> ${Math.floor(
-      product.price * (1 - product.saleRatio)
-    )}원</dd>`
+    ? /*html*/ `
+    <div>
+    <dd class="dimmed-price">${product.price}원</dd>
+    <div class="price_info">
+    <dd class="best__discount-rate">${(product.saleRatio * 100).toFixed(
+      0
+    )}%</dd>
+      <dd class="best__price">  ${Math.floor(
+        product.price * (1 - product.saleRatio)
+      )}원</dd></div>
+        </div>
+    `
     : `<dd class="best__price">${product.price}원</dd>`;
 
   return /*html*/ `
