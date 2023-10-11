@@ -15,7 +15,10 @@ export default defineConfig({
           __dirname,
           'client/pages/productDetail.html'
         ),
-        specialPrice: path.resolve(__dirname, 'client/pages/specialPrice.html'),
+        specialPrice: path.resolve(
+          __dirname,
+          'client/pages/productBenefit.html'
+        ),
       },
     },
   },
