@@ -3,7 +3,921 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>칼리 베스트 - 칼리</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/components/dropDown.js" type="module"></script>
+    <script src="../js/pages/productList.js" type="module"></script>
   </head>
-  <body></body>
+  <body>
+    <!-- -------------------------- Top banner start --------------------------- -->
+
+    <div class="top-banner">
+      <div class="top-banner__inner">
+        <p>지금 가입하고 인기상품 <b>100원</b>에 받아가세요!</p>
+        <button
+          type="button"
+          class="top-banner__close-btn"
+          aria-label="배너 닫기"
+        >
+          <img src="/assets/icons/ico_close.svg" alt="" />
+        </button>
+      </div>
+    </div>
+
+    <!-- ---------------------------- Header start ----------------------------- -->
+    <header class="header">
+      <div class="header__outer">
+        <a href="./pages/login.html" class="header__nav-link">로그인</a>
+        <div class="header__separator"></div>
+        <a href="./pages/register.html" class="header__nav-link">회원가입</a>
+        <div class="header__separator"></div>
+        <a href="#" class="header__nav-link" id="menu-toggle"
+          >고객센터 <span class="header__arrow-down"></span
+        ></a>
+        <ul class="header__dropdown menu">
+          <li><a href="#" class="header__dropdown-link">공지 사항</a></li>
+          <li><a href="#" class="header__dropdown-link">자주하는 질문</a></li>
+          <li><a href="#" class="header__dropdown-link">1:1 문의</a></li>
+          <li><a href="#" class="header__dropdown-link">대량주문 문의</a></li>
+        </ul>
+      </div>
+
+      <div class="header__inner">
+        <div class="header__logo">
+          <a href="#" class="karly__logo" aria-label="마켓컬리">
+            <h1>
+              <img src="/assets/icons/logo.svg" alt=" " />
+            </h1>
+          </a>
+          <button type="button" class="market__button">
+            <a href="#" class="market__link" tabindex="-1">마켓컬리</a>
+          </button>
+          <button type="button" class="beauty__button">
+            <a href="#" class="beauty__link" tabindex="-1">뷰티컬리</a>
+          </button>
+        </div>
+
+        <form class="header__search">
+          <div class="search">
+            <input
+              type="text"
+              class="search__input"
+              required
+              placeholder="검색어를 입력해주세요"
+            />
+            <button
+              type="submit"
+              class="search__button"
+              aria-label="찾기 버튼"
+            ></button>
+          </div>
+        </form>
+
+        <div class="header__icon">
+          <ul class="icon__list">
+            <li class="icon__item icon__item--location">
+              <a href="#" class="icon__link icon__link--location"
+                ><img
+                  src="/assets/icons/location.svg"
+                  alt="배송지 등록"
+                  width="36"
+                  height="36"
+                />
+              </a>
+            </li>
+            <li class="icon__item icon__item--good">
+              <a href="#" class="icon__link icon__link--good"
+                ><img
+                  src="/assets/icons/heart.svg"
+                  alt="찜"
+                  width="36"
+                  height="36"
+                />
+              </a>
+            </li>
+            <li class="icon__item icon__item--basket">
+              <a href="#" class="icon__link icon__link--basket">
+                <img
+                  src="/assets/icons/cart.svg"
+                  alt="장바구니"
+                  width="36"
+                  height="36"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- ---------------------------- Navigation start ----------------------------- -->
+    <nav class="navigation common">
+      <div class="nav-box">
+        <h2 class="a11yHidden">메인 메뉴</h2>
+        <ul class="nav-menu__list">
+          <li type="button" class="nav-menu__item">
+            <div type="button" class="nav-toggle-btn">
+              <img
+                src="../assets/icons/hamburger.svg"
+                alt="카테고리 버튼"
+                class="button--burger"
+                tabindex="0"
+              />
+              <span class="category__txt">카테고리</span>
+            </div>
+            <h2 class="a11yHidden">하위메뉴</h2>
+            <ul class="nav-sub-menu" hidden>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon.svg"
+                    alt="메뉴 아이콘"
+                  />선물하기</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-1.svg"
+                    alt="메뉴 아이콘"
+                  />채소</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-2.svg"
+                    alt="메뉴 아이콘"
+                  />과일 · 견과 · 쌀</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-3.svg"
+                    alt="메뉴 아이콘"
+                  />수산 · 해산 · 건어물</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-4.svg"
+                    alt="메뉴 아이콘"
+                  />정육 · 계란</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-5.svg"
+                    alt="메뉴 아이콘"
+                  />국 · 반찬 · 메인요리</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-6.svg"
+                    alt="메뉴 아이콘"
+                  />샐러드 · 간편식</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-7.svg"
+                    alt="메뉴 아이콘"
+                  />면 · 양념 · 오일</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-8.svg"
+                    alt="메뉴 아이콘"
+                  />생수 · 음료 · 우유 · 커피</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-9.svg"
+                    alt="메뉴 아이콘"
+                  />간식 · 과자 · 떡</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-10.svg"
+                    alt="메뉴 아이콘"
+                  />베이커리 · 치즈 · 델리</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-11.svg"
+                    alt="메뉴 아이콘"
+                  />건강식품</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-12.svg"
+                    alt="메뉴 아이콘"
+                  />와인</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-13.svg"
+                    alt="메뉴 아이콘"
+                  />전통주</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-14.svg"
+                    alt="메뉴 아이콘"
+                  />생활용품 · 리빙 · 캠핑</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-15.svg"
+                    alt="메뉴 아이콘"
+                  />스킨케어 · 메이크업</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-16.svg"
+                    alt="메뉴 아이콘"
+                  />헤어 · 바디 · 구강</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-17.svg"
+                    alt="메뉴 아이콘"
+                  />주방용품</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-18.svg"
+                    alt="메뉴 아이콘"
+                  />가전제품</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-19.svg"
+                    alt="메뉴 아이콘"
+                  />반려동물</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-20.svg"
+                    alt="메뉴 아이콘"
+                  />
+                  베이비 · 키즈 · 완구</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/icons/navigation-Icon/Icon-21.svg"
+                    alt="메뉴 아이콘"
+                  />여행 · 티켓</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- 메뉴 리스트 -->
+        <li class="nav-menu__item">
+          <a href="./productList.html" class="menu__link">신상품</a>
+        </li>
+        <li class="nav-menu__item">
+          <a href="./productList.html" class="menu__link">베스트</a>
+        </li>
+        <li class="nav-menu__item">
+          <a href="./productList.html" class="menu__link">알뜰쇼핑</a>
+        </li>
+        <li class="nav-menu__item">
+          <a href="./productBenefit.html" class="menu__link">특가/혜택</a>
+        </li>
+
+        <button type="button" class="notice-btn">
+          <span class="notice__text"> 샛별·낮</span> 배송안내
+        </button>
+      </div>
+    </nav>
+
+    <!-- ---------------------------- Product List start ----------------------------- -->
+    <section class="product-list_wrapper">
+      <h3>베스트</h3>
+      <div id="product-list" class="product-list">
+        <!-- 아코디언 섹션 -->
+        <div class="accordion">
+          <div class="product-list_filter">
+            <span>필터</span>
+            <button class="accordion__init">초기화</button>
+          </div>
+
+          <!-- 카테고리 -->
+          <div class="category-wrapper">
+            <div class="category-header">
+              <button class="toggle-btn">
+                <span class="category-title">카테고리</span>
+              </button>
+            </div>
+
+            <ul class="product-list_nav">
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="category-check01" />
+                <label for="category-check01" class="checkbox-label">
+                  <span class="filter_accordion-name">샐러드·간편식</span>
+                  <span class="filter_accordion-amount">65</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="category-check02" />
+                <label for="category-check02" class="checkbox-label">
+                  <span class="filter_accordion-name">국·반찬·메인요리</span>
+                  <span class="filter_accordion-amount">52</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="category-check03" />
+                <label for="category-check03" class="checkbox-label">
+                  <span class="filter_accordion-name">정육·계란</span>
+                  <span class="filter_accordion-amount">41</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="category-check04" />
+                <label for="category-check04" class="checkbox-label">
+                  <span class="filter_accordion-name">과일·견과·쌀</span>
+                  <span class="filter_accordion-amount">30</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="category-check05" />
+                <label for="category-check05" class="checkbox-label">
+                  <span class="filter_accordion-name">간식·과자·떡</span>
+                  <span class="filter_accordion-amount">18</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="category-check06" />
+                <label for="category-check06" class="checkbox-label">
+                  <span class="filter_accordion-name">생수·음료·우유·커피</span>
+                  <span class="filter_accordion-amount">17</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="category-check07" />
+                <label for="category-check07" class="checkbox-label">
+                  <span class="filter_accordion-name">수산·해산·건어물</span>
+                  <span class="filter_accordion-amount">16</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="category-check08" />
+                <label for="category-check08" class="checkbox-label">
+                  <span class="filter_accordion-name">베이커리·치즈·델리</span>
+                  <span class="filter_accordion-amount">13</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="category-check09" />
+                <label for="category-check09" class="checkbox-label">
+                  <span class="filter_accordion-name">건강식품</span>
+                  <span class="filter_accordion-amount">10</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="category-check10" />
+                <label for="category-check10" class="checkbox-label">
+                  <span class="filter_accordion-name">생활용품·리빙·캠핑</span>
+                  <span class="filter_accordion-amount">10</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-more">
+                <span class="filter_accordion-amount">카테고리 더보기 ></span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 브랜드 -->
+          <div class="category-wrapper">
+            <div>
+              <button class="toggle-btn">
+                <span class="category-title">브랜드</span>
+              </button>
+            </div>
+
+            <ul class="product-list_nav">
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="brand-check01" />
+                <label for="brand-check01" class="checkbox-label">
+                  <span class="filter_accordion-name">감자밭</span>
+                  <span class="filter_accordion-amount">1</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="brand-check02" />
+                <label for="brand-check02" class="checkbox-label">
+                  <span class="filter_accordion-name">강남면옥</span>
+                  <span class="filter_accordion-amount">1</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="brand-check03" />
+                <label for="brand-check03" class="checkbox-label">
+                  <span class="filter_accordion-name">경남제약</span>
+                  <span class="filter_accordion-amount">1</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="brandcheck04" />
+                <label for="brand-check04" class="checkbox-label">
+                  <span class="filter_accordion-name">경복궁</span>
+                  <span class="filter_accordion-amount">1</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="brand-check05" />
+                <label for="brand-check05" class="checkbox-label">
+                  <span class="filter_accordion-name">고래사</span>
+                  <span class="filter_accordion-amount">1</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="brand-check06" />
+                <label for="brand-check06" class="checkbox-label">
+                  <span class="filter_accordion-name">고메공방</span>
+                  <span class="filter_accordion-amount">1</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="brand-check07" />
+                <label for="brand-check07" class="checkbox-label">
+                  <span class="filter_accordion-name">고온어다이어트</span>
+                  <span class="filter_accordion-amount">1</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="brand-check08" />
+                <label for="brand-check08" class="checkbox-label">
+                  <span class="filter_accordion-name">교토마블</span>
+                  <span class="filter_accordion-amount">1</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="brand-check09" />
+                <label for="brand-check09" class="checkbox-label">
+                  <span class="filter_accordion-name">그래놀라 하우스</span>
+                  <span class="filter_accordion-amount">1</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="brand-check10" />
+                <label for="brand-check10" class="checkbox-label">
+                  <span class="filter_accordion-name">그리츠 시그니처 램</span>
+                  <span class="filter_accordion-amount">1</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-more">
+                <span class="filter_accordion-amount">브랜드 더보기 ></span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 가격 -->
+          <div class="category-wrapper">
+            <div class="category-header">
+              <button class="toggle-btn">
+                <span class="category-title">가격</span>
+              </button>
+            </div>
+
+            <ul class="product-list_nav">
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="price-check01" />
+                <label for="price-check01" class="checkbox-label">
+                  <span class="filter_accordion-name">7,900원 미만</span>
+                  <span class="filter_accordion-amount">71</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="price-check02" />
+                <label for="price-check02" class="checkbox-label">
+                  <span class="filter_accordion-name">7,900원 ~ 11,800원</span>
+                  <span class="filter_accordion-amount">78</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="pricecheck03" />
+                <label for="price-check03" class="checkbox-label">
+                  <span class="filter_accordion-name">11,800원 ~ 15,900원</span>
+                  <span class="filter_accordion-amount">73</span>
+                </label>
+              </li>
+
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="price-check07" />
+                <label for="price-check07" class="checkbox-label">
+                  <span class="filter_accordion-name">15,900원 이상</span>
+                  <span class="filter_accordion-amount">76</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 혜택 -->
+          <div class="category-wrapper">
+            <div class="category-header">
+              <button class="toggle-btn">
+                <span class="category-title">혜택</span>
+              </button>
+            </div>
+
+            <ul class="product-list_nav">
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="benefit-check04" />
+                <label for="benefit-check04" class="checkbox-label">
+                  <span class="filter_accordion-name">할인 상품</span>
+                  <span class="filter_accordion-amount">130</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="benefit-check05" />
+                <label for="benefit-check05" class="checkbox-label">
+                  <span class="filter_accordion-name">한정 수량</span>
+                  <span class="filter_accordion-amount">2</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 유형-->
+          <div class="category-wrapper">
+            <div class="category-header">
+              <button class="toggle-btn">
+                <span class="category-title">유형</span>
+              </button>
+            </div>
+
+            <ul class="product-list_nav">
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="typec-heck01" />
+                <label for="type-check01" class="checkbox-label">
+                  <span class="filter_accordion-name">Karly Only</span>
+                  <span class="filter_accordion-amount">106</span>
+                </label>
+              </li>
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="type-check02" />
+                <label for="type-check02" class="checkbox-label">
+                  <span class="filter_accordion-name">희소가치 프로젝트</span>
+                  <span class="filter_accordion-amount">8</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 특정 상품 제외 -->
+          <div class="category-wrapper">
+            <div class="category-header">
+              <button class="toggle-btn">
+                <span class="category-title">특정상품 제외</span>
+              </button>
+            </div>
+
+            <ul class="product-list_nav">
+              <li tabindex="0" class="filter_accordion-list">
+                <input type="checkbox" id="product-check01" />
+                <label for="product-check01" class="checkbox-label">
+                  <span class="filter_accordion-name">반려동물 상품</span>
+                  <span class="filter_accordion-amount">5</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- section 2 -->
+        <div class="best-wrapper">
+          <div class="best-nav">
+            <p class="best-total_amount">총 284건</p>
+            <ul class="best-list">
+              <li><a href="#" class="sort-option">추천순</a></li>
+              <li><a href="#" class="sort-option">신상품순</a></li>
+              <li><a href="#" class="sort-option">판매량순</a></li>
+              <li><a href="#" class="sort-option">혜택순</a></li>
+              <li><a href="#" class="sort-option">낮은 가격순</a></li>
+              <li><a href="#" class="sort-option">높은 가격순</a></li>
+            </ul>
+          </div>
+
+          <!-- 상품 리스트 -->
+          <div class="best-container">
+            <a href="#">
+              <figure class="best-img_wrapper">
+                <div class="image-container">
+                  <img
+                    src="../assets/product/product01.png"
+                    alt="탱탱쫄면 이미지"
+                    class="best-product_img"
+                  />
+                </div>
+                <button class="best-cart_btn">
+                  <img
+                    src="../assets/icons/cart.png"
+                    alt="장바구니 아이콘"
+                    class="best-cart_img"
+                  />
+                </button>
+                <figcaption class="best-img_container">
+                  <h3 class="a11yHidden">[풀무원] 탱탱쫄면(4개입)</h3>
+                  <dl class="best-item">
+                    <dt aria-hidden="true" class="a11yHidden">배송안내</dt>
+                    <dd class="best__delivery">샛별배송</dd>
+                    <dt class="a11yHidden">상품명</dt>
+                    <dd id="best-item_tang-1" class="best__name">
+                      [풀무원] 탱탱쫄면(4개입)
+                    </dd>
+                    <div class="price_info">
+                      <dt class="a11yHidden">가격</dt>
+                      <dd class="best__price">4,980원</dd>
+                      <dt class="a11yHidden">상품설명</dt>
+                    </div>
+                    <dd class="best__info">튀기지 않아 부담없는 매콤함</dd>
+                    <div class="best-message">
+                      <dt aria-hidden="true" class="a11yHidden">단독</dt>
+                      <dd class="best__only">Karly Only</dd>
+                      <dt aria-hidden="true" class="a11yHidden">수량정보</dt>
+                      <dd class="best__limit">한정수량</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+            </a>
+            <a href="#">
+              <figure class="best-img_wrapper">
+                <div class="image-container">
+                  <img
+                    src="../assets/product/product01.png"
+                    alt="탱탱쫄면 이미지"
+                    class="best-product_img"
+                  />
+                </div>
+                <button class="best-cart_btn">
+                  <img
+                    src="../assets/icons/cart.png"
+                    alt="장바구니 아이콘"
+                    class="best-cart_img"
+                  />
+                </button>
+                <figcaption class="best-img_container">
+                  <h3 class="a11yHidden">[풀무원] 탱탱쫄면(4개입)</h3>
+                  <dl class="best-item">
+                    <dt aria-hidden="true" class="a11yHidden">배송안내</dt>
+                    <dd class="best__delivery">샛별배송</dd>
+                    <dt class="a11yHidden">상품명</dt>
+                    <dd id="best-item_tang-6" class="best__name">
+                      [풀무원] 탱탱쫄면(4개입)
+                    </dd>
+                    <div class="price_info">
+                      <dt class="a11yHidden">가격</dt>
+                      <dd class="best__price">4,980원</dd>
+                      <dt class="a11yHidden">상품설명</dt>
+                    </div>
+                    <dd class="best__info">튀기지 않아 부담없는 매콤함</dd>
+                    <div class="best-message">
+                      <dt aria-hidden="true" class="a11yHidden">단독</dt>
+                      <dd class="best__only">Karly Only</dd>
+                      <dt aria-hidden="true" class="a11yHidden">수량정보</dt>
+                      <dd class="best__limit">한정수량</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+            </a>
+            <a href="#">
+              <figure class="best-img_wrapper">
+                <div class="image-container">
+                  <img
+                    src="../assets/product/product01.png"
+                    alt="탱탱쫄면 이미지"
+                    class="best-product_img"
+                  />
+                </div>
+                <button class="best-cart_btn">
+                  <img
+                    src="../assets/icons/cart.png"
+                    alt="장바구니 아이콘"
+                    class="best-cart_img"
+                  />
+                </button>
+                <figcaption class="best-img_container">
+                  <h3 class="a11yHidden">[풀무원] 탱탱쫄면(4개입)</h3>
+                  <dl class="best-item">
+                    <dt aria-hidden="true" class="a11yHidden">배송안내</dt>
+                    <dd class="best__delivery">샛별배송</dd>
+                    <dt class="a11yHidden">상품명</dt>
+                    <dd id="best-item_tang-2" class="best__name">
+                      [풀무원] 탱탱쫄면(4개입)
+                    </dd>
+                    <div class="price_info">
+                      <dt class="a11yHidden">가격</dt>
+                      <dd class="best__price">4,980원</dd>
+                      <dt class="a11yHidden">상품설명</dt>
+                    </div>
+                    <dd class="best__info">튀기지 않아 부담없는 매콤함</dd>
+                    <div class="best-message">
+                      <dt aria-hidden="true" class="a11yHidden">단독</dt>
+                      <dd class="best__only">Karly Only</dd>
+                      <dt aria-hidden="true" class="a11yHidden">수량정보</dt>
+                      <dd class="best__limit">한정수량</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+            </a>
+            <a href="#">
+              <figure class="best-img_wrapper">
+                <div class="image-container">
+                  <img
+                    src="../assets/product/product01.png"
+                    alt="탱탱쫄면 이미지"
+                    class="best-product_img"
+                  />
+                </div>
+                <button class="best-cart_btn">
+                  <img
+                    src="../assets/icons/cart.png"
+                    alt="장바구니 아이콘"
+                    class="best-cart_img"
+                  />
+                </button>
+                <figcaption class="best-img_container">
+                  <h3 class="a11yHidden">[풀무원] 탱탱쫄면(4개입)</h3>
+                  <dl class="best-item">
+                    <dt aria-hidden="true" class="a11yHidden">배송안내</dt>
+                    <dd class="best__delivery">샛별배송</dd>
+                    <dt class="a11yHidden">상품명</dt>
+                    <dd id="best-item_tang-3" class="best__name">
+                      [풀무원] 탱탱쫄면(4개입)
+                    </dd>
+                    <div class="price_info">
+                      <dt class="a11yHidden">가격</dt>
+                      <dd class="best__price">4,980원</dd>
+                      <dt class="a11yHidden">상품설명</dt>
+                    </div>
+                    <dd class="best__info">튀기지 않아 부담없는 매콤함</dd>
+                    <div class="best-message">
+                      <dt aria-hidden="true" class="a11yHidden">단독</dt>
+                      <dd class="best__only">Karly Only</dd>
+                      <dt aria-hidden="true" class="a11yHidden">수량정보</dt>
+                      <dd class="best__limit">한정수량</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+            </a>
+            <a href="#">
+              <figure class="best-img_wrapper">
+                <div class="image-container">
+                  <img
+                    src="../assets/product/product01.png"
+                    alt="탱탱쫄면 이미지"
+                    class="best-product_img"
+                  />
+                </div>
+                <button class="best-cart_btn">
+                  <img
+                    src="../assets/icons/cart.png"
+                    alt="장바구니 아이콘"
+                    class="best-cart_img"
+                  />
+                </button>
+                <figcaption class="best-img_container">
+                  <h3 class="a11yHidden">[풀무원] 탱탱쫄면(4개입)</h3>
+                  <dl class="best-item">
+                    <dt aria-hidden="true" class="a11yHidden">배송안내</dt>
+                    <dd class="best__delivery">샛별배송</dd>
+                    <dt class="a11yHidden">상품명</dt>
+                    <dd id="best-item_tang-4" class="best__name">
+                      [풀무원] 탱탱쫄면(4개입)
+                    </dd>
+                    <div class="price_info">
+                      <dt class="a11yHidden">가격</dt>
+                      <dd class="best__price">4,980원</dd>
+                      <dt class="a11yHidden">상품설명</dt>
+                    </div>
+                    <dd class="best__info">튀기지 않아 부담없는 매콤함</dd>
+                    <div class="best-message">
+                      <dt aria-hidden="true" class="a11yHidden">단독</dt>
+                      <dd class="best__only">Karly Only</dd>
+                      <dt aria-hidden="true" class="a11yHidden">수량정보</dt>
+                      <dd class="best__limit">한정수량</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+            </a>
+            <a href="#">
+              <figure class="best-img_wrapper">
+                <div class="image-container">
+                  <img
+                    src="../assets/product/product01.png"
+                    alt="탱탱쫄면 이미지"
+                    class="best-product_img"
+                  />
+                </div>
+                <button class="best-cart_btn">
+                  <img
+                    src="../assets/icons/cart.png"
+                    alt="장바구니 아이콘"
+                    class="best-cart_img"
+                  />
+                </button>
+                <figcaption class="best-img_container">
+                  <h3 class="a11yHidden">[풀무원] 탱탱쫄면(4개입)</h3>
+                  <dl class="best-item">
+                    <dt aria-hidden="true" class="a11yHidden">배송안내</dt>
+                    <dd class="best__delivery">샛별배송</dd>
+                    <dt class="a11yHidden">상품명</dt>
+                    <dd id="best-item_tang-5" class="best__name">
+                      [풀무원] 탱탱쫄면(4개입)
+                    </dd>
+                    <div class="price_info">
+                      <dt class="a11yHidden">가격</dt>
+                      <dd class="best__price">4,980원</dd>
+                      <dt class="a11yHidden">상품설명</dt>
+                    </div>
+                    <dd class="best__info">튀기지 않아 부담없는 매콤함</dd>
+                    <div class="best-message">
+                      <dt aria-hidden="true" class="a11yHidden">단독</dt>
+                      <dd class="best__only">Karly Only</dd>
+                      <dt aria-hidden="true" class="a11yHidden">수량정보</dt>
+                      <dd class="best__limit">한정수량</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+
+          <!-- 페이지 네이션 -->
+          <div class="best-pagenation">
+            <button class="pg-btn">
+              <img
+                src="../assets/icons/page-left01.png"
+                alt="처음 페이지로 이동 "
+              />
+            </button>
+            <button class="pg-btn">
+              <img
+                src="../assets/icons/page-left02.png"
+                alt="이전 페이지로 이동 "
+              />
+            </button>
+            <a href="#" class="pg-btn">1</a>
+            <a href="#" class="pg-btn">2</a>
+            <a href="#" class="pg-btn">3</a>
+            <button class="pg-btn">
+              <img
+                src="../assets/icons/page-right01.png"
+                alt="다음 페이지로 이동"
+              />
+            </button>
+            <button class="pg-btn">
+              <img
+                src="../assets/icons/page-right02.png"
+                alt="마지막 페이지로 이동"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
