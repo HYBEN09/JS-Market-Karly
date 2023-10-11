@@ -4,8 +4,11 @@ import { getNode, getNodes } from '../../lib/index.js';
 const listItems = getNodes('.best-list li');
 const sortOptions = getNodes('.sort-option');
 const toggleButtons = getNodes('.toggle-btn');
+const productList = getNode('.product-list_nav');
 
-// 메뉴 클릭 토글 함수
+/* -------------------------------------------------------------------------- */
+/*                             메뉴 클릭 토글 함수                                */
+/* -------------------------------------------------------------------------- */
 function toggleListNav(e) {
   const listItem = e.currentTarget.parentElement;
   const listNav = listItem.nextElementSibling;
@@ -32,5 +35,19 @@ function initializeToggleButtons() {
   });
 }
 
-// ---------------------------------------------------------------
+/* -------------------------------------------------------------------------- */
+/*                    SortOption 클릭 이벤트 처리 기능 추가                         */
+/* -------------------------------------------------------------------------- */
+
+function activateSortOption() {
+  sortOptions.forEach((option) => {
+    option.addEventListener('click', function () {
+      sortOptions.forEach((o) => o.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+}
+
+/* ---------------------------------- 함수 실행 ---------------------------- */
 initializeToggleButtons();
+activateSortOption();
