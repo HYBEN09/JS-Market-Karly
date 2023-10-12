@@ -11,6 +11,8 @@ const cartWrapper = getNode('.cart-popup_wrapper');
 const cartPlusBtn = getNode('.cart-popup_count-plus');
 const cartMinusBtn = getNode('.cart-popup_count-minus');
 
+let products = [];
+
 /* -------------------------------------------------------------------------- */
 /*                             메뉴 클릭 토글 함수                                */
 /* -------------------------------------------------------------------------- */
@@ -82,7 +84,7 @@ function generateProductHTML(product) {
       : '';
 
   return /*html*/ `
-    <a href="#">
+    <a href="#" data-id="${product.id}">
       <figure class="best-img_wrapper">
         <div class="image-container">
           <img src="${product.image.thumbnail}" alt="${product.image.alt}" class="best-product_img" />
@@ -111,6 +113,9 @@ function loadAndDisplayProducts() {
   fetch('http://localhost:5000/products')
     .then((response) => response.json())
     .then((data) => {
+      // 상품 데이터를 전역 변수에 저장
+      products = data;
+
       data.forEach((product) => {
         const productHTML = generateProductHTML(product);
         bestContainer.innerHTML += productHTML;
@@ -125,16 +130,28 @@ function loadAndDisplayProducts() {
 /*                                장바구니 팝업                                  */
 /* -------------------------------------------------------------------------- */
 function generateCartPopup(item) {
-  if (!cartWrapper.querySelector('.cart-popup')) {
+  const existingPopup = cartWrapper.querySelector('.cart-popup');
+
+  if (existingPopup) {
+    // 이미 팝업이 열려 있는 경우, 팝업 내용 업데이트
+    const titleElement = existingPopup.querySelector(
+      '.cart-popup_content-title span'
+    );
+    const priceElement = existingPopup.querySelector('.cart-popup_product');
+    const sumElement = existingPopup.querySelector('.cart-popup_price');
+    titleElement.textContent = item.name;
+    priceElement.textContent = `${item.price}원`;
+    sumElement.textContent = `${item.price}`;
+  } else {
     const cartPopup = /*html*/ `
          <div class="cart-popup muiDialog-paper" role="document">
             <div class="cart-popup_content">
               <div class="cart-popup_content-top">
                 <h2 id="cartPopupTitle" class="cart-popup_content-title">
-                  <span>[풀무원] 탱탱쫄면 (4개입)</span>
+                  <span>${item.name}</span>
                 </h2>
                 <div class="cart-popup_content-count">
-                  <p class="cart-popup_product">4,980원</p>
+                  <p class="cart-popup_product">${item.price}원</p>
                   <div class="cart-popup_count-box">
                     <button class="cart-popup_count-minus">-</button>
                     <span
@@ -150,7 +167,7 @@ function generateCartPopup(item) {
               <div class="cart-popup_content-middle">
                 <div class="cart-popup_totals">
                   <p class="cart-popup_sum">합계</p>
-                  <p><span class="cart-popup_price">4980</span>원</p>
+                  <p><span class="cart-popup_price">${item.price}</span>원</p>
                 </div>
 
                 <div class="cart-popup_info">
@@ -180,7 +197,6 @@ function generateCartPopup(item) {
 
     // 새로 생성된 '취소' 버튼에 클릭 이벤트 리스너 추가
     const cartCancelBtn = getNode('.cart-popup_cancel-button');
-
     cartCancelBtn.addEventListener('click', closeCartPopup);
   }
 }
@@ -201,7 +217,21 @@ function initializeCartButtons() {
 // 장바구니 버튼 클릭 시 실행될 핸들러 함수
 function handleCartButtonClick(event) {
   event.preventDefault();
-  generateCartPopup();
+
+  // 클릭한 버튼의 부모 요소(상품 요소)에서 data-id 값을 가져오기
+  const productId = event.currentTarget.closest('a').dataset.id;
+  console.log(productId);
+
+  // products 배열에서 해당 id를 가진 상품 찾기
+  const product = products.find((product) => product.id === productId);
+  console.log(product);
+
+  // 해당 상품 정보를 사용하여 팝업 생성
+  generateCartPopup({
+    name: product.name,
+    price: product.price,
+  });
+
   cartWrapper.classList.add('show');
 }
 
