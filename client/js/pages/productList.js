@@ -5,7 +5,12 @@ const listItems = getNodes('.best-list li');
 const sortOptions = getNodes('.sort-option');
 const toggleButtons = getNodes('.toggle-btn');
 const productList = getNode('.product-list_nav');
+const cartButtons = getNodes('.best-cart_btn');
 const bestContainer = getNode('.best-container');
+const cartCancelBtn = getNode('.cart-popup_cancel-button');
+const cartWrapper = getNode('.cart-popup_wrapper');
+const cartPlusBtn = getNode('.cart-popup_count-plus');
+const cartMinusBtn = getNode('.cart-popup_count-minus');
 
 /* -------------------------------------------------------------------------- */
 /*                             메뉴 클릭 토글 함수                                */
@@ -41,68 +46,61 @@ function activateSortOption() {
 /* -------------------------------------------------------------------------- */
 /*                Product 데이터를 불러오고 화면에 보여주는 함수                        */
 /* -------------------------------------------------------------------------- */
+// 할인 정보 HTML을 생성하는 함수
 function generateDiscountInfo(discountRate) {
-  return `
-    <dd class="best__discount-rate">${(discountRate * 100).toFixed(0)}%</dd>
-  `;
+  return `<dd class="best__discount-rate">${(discountRate * 100).toFixed(
+    0
+  )}%</dd>`;
 }
+
 // 상품 HTML을 생성하는 함수
 function generateProductHTML(product) {
   const discountInfo = product.saleRatio
     ? generateDiscountInfo(product.saleRatio)
     : '';
-
   const priceInfo = product.saleRatio
     ? /*html*/ `
     <div>
-    <dd class="dimmed-price">${product.price}원</dd>
-    <div class="price_info">
-    <dd class="best__discount-rate">${(product.saleRatio * 100).toFixed(
-      0
-    )}%</dd>
-      <dd class="best__price">  ${Math.floor(
-        product.price * (1 - product.saleRatio)
-      )}원</dd></div>
-        </div>
-    `
+      <dd class="dimmed-price">${product.price}원</dd>
+      <div class="price_info">
+        <dd class="best__discount-rate">${(product.saleRatio * 100).toFixed(
+          0
+        )}%</dd>
+        <dd class="best__price">${Math.floor(
+          product.price * (1 - product.saleRatio)
+        )}원</dd>
+      </div>
+    </div>`
     : `<dd class="best__price">${product.price}원</dd>`;
+
+  const kalryOnlyInfo =
+    product.kalryOnly === 'true'
+      ? /*html*/ `
+    <div class="best-message">
+      <dd class="best__only">Karly Only</dd>
+      <dd class="best__limit">한정수량</dd>
+    </div>`
+      : '';
 
   return /*html*/ `
     <a href="#">
       <figure class="best-img_wrapper">
         <div class="image-container">
-          <img src="${product.image.thumbnail}" alt="${
-            product.image.alt
-          }" class="best-product_img" />
+          <img src="${product.image.thumbnail}" alt="${product.image.alt}" class="best-product_img" />
+          <button class="best-cart_btn">
+            <img src="../../assets/icons/cart.png" alt="장바구니 아이콘" class="best-cart_img" />
+          </button>
         </div>
-        <button class="best-cart_btn">
-          <img src="../../assets/icons/cart.png" alt="장바구니 아이콘" class="best-cart_img" />
-        </button>
         <figcaption class="best-img_container">
           <h3 class="a11yHidden">${product.name}</h3>
           <dl class="best-item">
-            <dt aria-hidden="true" class="a11yHidden">배송안내</dt>
             <dd class="best__delivery">샛별배송</dd>
-            <dt aria-hidden="true" class="a11yHidden">배송안내</dt>
             <dd id="${product.id}" class="best__name">${product.name}</dd>
             <div class="price_info">
-              <dt class="a11yHidden">가격</dt>
               ${priceInfo}
-              <dt class="a11yHidden">상품설명</dt>
             </div>
             <dd class="best__info">${product.description}</dd>
-        ${
-          product.kalryOnly === 'true'
-            ? `
-            <div class="best-message">
-              <dt aria-hidden="true" class="a11yHidden">단독</dt>
-              <dd class="best__only">Karly Only</dd>
-              <dt aria-hidden="true" class="a11yHidden">수량정보</dt>
-              <dd class="best__limit">한정수량</dd>
-            </div>
-            `
-            : `<div style="height: 34px;"></div>`
-        }
+            ${kalryOnlyInfo}
           </dl>
         </figcaption>
       </figure>
@@ -118,8 +116,84 @@ function loadAndDisplayProducts() {
         const productHTML = generateProductHTML(product);
         bestContainer.innerHTML += productHTML;
       });
+
+      initializeCartButtons();
     })
     .catch((error) => console.error(error));
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                장바구니 팝업                                  */
+/* -------------------------------------------------------------------------- */
+function generateCartPopup(item) {
+  if (!cartWrapper.querySelector('.cart-popup')) {
+    const cartPopup = /*html*/ `
+         <div class="cart-popup muiDialog-paper" role="document">
+            <div class="cart-popup_content">
+              <div class="cart-popup_content-top">
+                <h2 id="cartPopupTitle" class="cart-popup_content-title">
+                  <span>[풀무원] 탱탱쫄면 (4개입)</span>
+                </h2>
+                <div class="cart-popup_content-count">
+                  <p class="cart-popup_product">4,980원</p>
+                  <div class="cart-popup_count-box">
+                    <button class="cart-popup_count-minus">-</button>
+                    <span
+                      class="cart-popup_count-total"
+                      aria-live="polite"
+                      aria-atomic="true"
+                      >1</span
+                    >
+                    <button class="cart-popup_count-plus">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-popup_content-middle">
+                <div class="cart-popup_totals">
+                  <p class="cart-popup_sum">합계</p>
+                  <p><span class="cart-popup_price">4980</span>원</p>
+                </div>
+
+                <div class="cart-popup_info">
+                  <p>
+                    <span class="save-tag cart-popup_save-tag">적립</span> 구매
+                    시 5원 적립
+                  </p>
+                </div>
+              </div>
+              <div class="cart-popup_content-bottom">
+                <div class="cart-popup_buttons">
+                  <button
+                    type="button"
+                    class="cart-cancel cart-popup_cancel-button"
+                  >
+                    취소
+                  </button>
+                  <button type="button" class="cart-add cart-popup_add-button">
+                    장바구니 담기
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+    `;
+    cartWrapper.innerHTML += cartPopup;
+  }
+}
+
+// 장바구니 버튼에 이벤트 리스너를 추가하는 함수
+function initializeCartButtons() {
+  let cartButtons = getNodes('.best-cart_btn');
+  cartButtons.forEach((button) =>
+    button.addEventListener('click', handleCartButtonClick)
+  );
+}
+
+// 장바구니 버튼 클릭 시 실행될 핸들러 함수
+function handleCartButtonClick(event) {
+  event.preventDefault();
+  generateCartPopup();
+  cartWrapper.classList.add('show');
 }
 
 /* ---------------------------------- 함수 실행 ---------------------------- */
