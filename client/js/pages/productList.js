@@ -7,7 +7,6 @@ const toggleButtons = getNodes('.toggle-btn');
 const productList = getNode('.product-list_nav');
 const cartButtons = getNodes('.best-cart_btn');
 const bestContainer = getNode('.best-container');
-const cartCancelBtn = getNode('.cart-popup_cancel-button');
 const cartWrapper = getNode('.cart-popup_wrapper');
 const cartPlusBtn = getNode('.cart-popup_count-plus');
 const cartMinusBtn = getNode('.cart-popup_count-minus');
@@ -178,7 +177,17 @@ function generateCartPopup(item) {
           </div>
     `;
     cartWrapper.innerHTML += cartPopup;
+
+    // 새로 생성된 '취소' 버튼에 클릭 이벤트 리스너 추가
+    const cartCancelBtn = getNode('.cart-popup_cancel-button');
+
+    cartCancelBtn.addEventListener('click', closeCartPopup);
   }
+}
+
+// 장바구니 취소 버튼 누를시 팝업창 닫히게 하는 함수
+function closeCartPopup() {
+  cartWrapper.classList.remove('show');
 }
 
 // 장바구니 버튼에 이벤트 리스너를 추가하는 함수
