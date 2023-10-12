@@ -129,21 +129,48 @@ function loadAndDisplayProducts() {
 /* -------------------------------------------------------------------------- */
 /*                                장바구니 팝업                                  */
 /* -------------------------------------------------------------------------- */
+function updateCartPopup(popup, item) {
+  const titleElement = popup.querySelector('.cart-popup_content-title span');
+  const priceElement = popup.querySelector('.cart-popup_product');
+  const sumElement = popup.querySelector('.cart-popup_price');
+  const minusButton = popup.querySelector('.cart-popup_count-minus');
+  const plusButton = popup.querySelector('.cart-popup_count-plus');
+  const countElement = popup.querySelector('.cart-popup_count-total');
+
+  titleElement.textContent = item.name;
+  priceElement.textContent = `${item.price}원`;
+  sumElement.textContent = `${item.price}`;
+
+  minusButton.removeEventListener('click', handleMinusClick);
+  minusButton.addEventListener('click', handleMinusClick);
+
+  plusButton.removeEventListener('click', handlePlusClick);
+  plusButton.addEventListener('click', handlePlusClick);
+
+  function handleMinusClick() {
+    let count = parseInt(countElement.textContent);
+    if (count > 1) {
+      count--;
+      countElement.textContent = count.toString();
+      sumElement.innerText = `${item.price * count}`;
+    }
+  }
+
+  function handlePlusClick() {
+    let count = parseInt(countElement.textContent);
+    count++;
+    countElement.innerText = count.toString();
+    sumElement.innerText = `${item.price * count}`;
+  }
+}
+
 function generateCartPopup(item) {
-  const existingPopup = cartWrapper.querySelector('.cart-popup');
+  let existingPopup = cartWrapper.querySelector('.cart-popup');
 
   if (existingPopup) {
-    // 이미 팝업이 열려 있는 경우, 팝업 내용 업데이트
-    const titleElement = existingPopup.querySelector(
-      '.cart-popup_content-title span'
-    );
-    const priceElement = existingPopup.querySelector('.cart-popup_product');
-    const sumElement = existingPopup.querySelector('.cart-popup_price');
-    titleElement.textContent = item.name;
-    priceElement.textContent = `${item.price}원`;
-    sumElement.textContent = `${item.price}`;
+    updateCartPopup(existingPopup, item);
   } else {
-    const cartPopup = /*html*/ `
+    cartWrapper.innerHTML += /*html*/ `
          <div class="cart-popup muiDialog-paper" role="document">
             <div class="cart-popup_content">
               <div class="cart-popup_content-top">
@@ -192,12 +219,11 @@ function generateCartPopup(item) {
               </div>
             </div>
           </div>
-    `;
-    cartWrapper.innerHTML += cartPopup;
+      `;
 
-    // 새로 생성된 '취소' 버튼에 클릭 이벤트 리스너 추가
-    const cartCancelBtn = getNode('.cart-popup_cancel-button');
-    cartCancelBtn.addEventListener('click', closeCartPopup);
+    const cancelBtn = getNode('.cart-cancel');
+    cancelBtn.addEventListener('click', closeCartPopup);
+    updateCartPopup(cartWrapper.querySelector('.cart-popup'), item);
   }
 }
 
@@ -226,7 +252,6 @@ function handleCartButtonClick(event) {
   const product = products.find((product) => product.id === productId);
   console.log(product);
 
-  // 해당 상품 정보를 사용하여 팝업 생성
   generateCartPopup({
     name: product.name,
     price: product.price,
