@@ -3,10 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>베스트 - 칼리</title>
+    <title>장바구니 - 칼리</title>
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/components/dropDown.js" type="module"></script>
-    <script src="../js/pages/productList.js" type="module"></script>
   </head>
   <body>
     <!-- -------------------------- Top banner start --------------------------- -->
@@ -328,358 +327,348 @@
       </div>
     </nav>
 
-    <!-- ---------------------------- Product List start ----------------------------- -->
-    <section class="product-list_wrapper">
-      <h3>베스트</h3>
-      <div id="product-list" class="product-list">
-        <!-- 아코디언 섹션 -->
-        <div class="accordion">
-          <div class="product-list_filter">
-            <span>필터</span>
-            <button class="accordion__init">초기화</button>
-          </div>
+    <!-- ---------------------------- Cart start ----------------------------- -->
+    <section class="cart">
+      <h2>장바구니</h2>
+      <div class="cart__content">
+        <div class="cart__header">
+          <fieldset class="cart__select-all">
+            <legend>전체 선택</legend>
+            <label>
+              <input type="checkbox" />
+              <span>전체 선택 (2/2)</span>
+            </label>
+            <span class="cart__divider">|</span>
+            <button type="button" class="cart__delete-selected">
+              선택 삭제
+            </button>
+          </fieldset>
 
-          <!-- 카테고리 -->
-          <div class="category-wrapper">
-            <div class="category-header">
-              <button class="toggle-btn">
-                <span class="category-title">카테고리</span>
+          <!-- 냉장 상품 -->
+          <div class="cart-product">
+            <div class="cart-product_top">
+              <div class="cart-product_data">
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgzMHYzMEgweiIvPgogICAgICAgIDxnIHN0cm9rZT0iIzVFQzQ5RSIgc3Ryb2tlLXdpZHRoPSIxLjUiPgogICAgICAgICAgICA8cGF0aCBkPSJNMTQuNjI3IDI1LjI1NWE3LjYyNyA3LjYyNyAwIDAgMCA3LjYyNi03LjYyN2MwLTIuODA4LTIuNTQyLTcuMTg0LTcuNjI2LTEzLjEyOEM5LjU0MiAxMC40NDQgNyAxNC44MiA3IDE3LjYyOGE3LjYyNyA3LjYyNyAwIDAgMCA3LjYyNyA3LjYyN3oiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICAgICAgICAgICAgPHBhdGggZD0iTTE0LjYyNyAyMC42NmEzLjgxMyAzLjgxMyAwIDAgMCAzLjgxMy0zLjgxMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+                <h3>냉장 상품</h3>
+              </div>
+              <button class="cart-toggle-button" aria-label="접기/펼치기">
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZGVmcz4KICAgICAgICA8cGF0aCBpZD0iN2EwMnFxZzNqYSIgZD0iTTExIDEyaDl2OSIvPgogICAgPC9kZWZzPgogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8cGF0aCBkPSJNMCAwaDMwdjMwSDB6Ii8+CiAgICAgICAgPHVzZSBzdHJva2U9IiMzMzMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ1IDE1LjUgMTYuNSkiIHhsaW5rOmhyZWY9IiM3YTAycXFnM2phIi8+CiAgICA8L2c+Cjwvc3ZnPgo="
+                  alt="접기"
+                />
               </button>
             </div>
 
-            <ul class="product-list_nav">
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="category-check01" />
-                <label for="category-check01" class="checkbox-label">
-                  <span class="filter_accordion-name">샐러드·간편식</span>
-                  <span class="filter_accordion-amount">65</span>
+            <ul class="cart-product-list">
+              <li class="cart-product-item">
+                <input type="checkbox" id="product-checkbox-1" />
+                <label for="product-checkbox-1">
+                  <img
+                    src="https://product-image.kurly.com/cdn-cgi/image/width=120,height=156,fit=crop,quality=85/product/image/8a97efea-4457-4728-9da5-18ed0011137f.jpg"
+                    alt="상품 이미지"
+                    width="60"
+                    height="78"
+                  />
                 </label>
+                <div class="cart-product-details">
+                  <p class="cart-product-name">
+                    [일일특가][방방곡곡] 비빔국수 키트 (2인분)
+                  </p>
+                  <p class="cart-product-description">
+                    [일일특가][방방곡곡] 인기 메뉴 2인분 3종 (택1)
+                  </p>
+                </div>
+                <form class="cart-quantity-form">
+                  <button
+                    type="button"
+                    class="cart-quantity-decrease"
+                    aria-label="수량 내리기"
+                    disabled
+                  ></button>
+                  <div class="cart-quantity">1</div>
+                  <button
+                    type="button"
+                    class="cart-quantity-increase"
+                    aria-label="수량 올리기"
+                  ></button>
+                </form>
+
+                <div class="cart-prices">
+                  <span class="cart-price-discounted" aria-label="할인 가격"
+                    >7,425원</span
+                  >
+                  <span class="cart-price-original" aria-label="판매 가격"
+                    >9,900원</span
+                  >
+                </div>
+                <button
+                  type="button"
+                  class="cart-delete-button"
+                  aria-label="상품 삭제"
+                ></button>
               </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="category-check02" />
-                <label for="category-check02" class="checkbox-label">
-                  <span class="filter_accordion-name">국·반찬·메인요리</span>
-                  <span class="filter_accordion-amount">52</span>
+            </ul>
+
+            <ul class="cart-product-list">
+              <li class="cart-product-item">
+                <input type="checkbox" id="product-checkbox-1" />
+                <label for="product-checkbox-1">
+                  <img
+                    src="https://product-image.kurly.com/cdn-cgi/image/width=120,height=156,fit=crop,quality=85/product/image/8a97efea-4457-4728-9da5-18ed0011137f.jpg"
+                    alt="상품 이미지"
+                    width="60"
+                    height="78"
+                  />
                 </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="category-check03" />
-                <label for="category-check03" class="checkbox-label">
-                  <span class="filter_accordion-name">정육·계란</span>
-                  <span class="filter_accordion-amount">41</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="category-check04" />
-                <label for="category-check04" class="checkbox-label">
-                  <span class="filter_accordion-name">과일·견과·쌀</span>
-                  <span class="filter_accordion-amount">30</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="category-check05" />
-                <label for="category-check05" class="checkbox-label">
-                  <span class="filter_accordion-name">간식·과자·떡</span>
-                  <span class="filter_accordion-amount">18</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="category-check06" />
-                <label for="category-check06" class="checkbox-label">
-                  <span class="filter_accordion-name">생수·음료·우유·커피</span>
-                  <span class="filter_accordion-amount">17</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="category-check07" />
-                <label for="category-check07" class="checkbox-label">
-                  <span class="filter_accordion-name">수산·해산·건어물</span>
-                  <span class="filter_accordion-amount">16</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="category-check08" />
-                <label for="category-check08" class="checkbox-label">
-                  <span class="filter_accordion-name">베이커리·치즈·델리</span>
-                  <span class="filter_accordion-amount">13</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="category-check09" />
-                <label for="category-check09" class="checkbox-label">
-                  <span class="filter_accordion-name">건강식품</span>
-                  <span class="filter_accordion-amount">10</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="category-check10" />
-                <label for="category-check10" class="checkbox-label">
-                  <span class="filter_accordion-name">생활용품·리빙·캠핑</span>
-                  <span class="filter_accordion-amount">10</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-more">
-                <span class="filter_accordion-amount">카테고리 더보기 ></span>
+                <div class="cart-product-details">
+                  <p class="cart-product-name">
+                    [일일특가][방방곡곡] 비빔국수 키트 (2인분)
+                  </p>
+                  <p class="cart-product-description">
+                    [일일특가][방방곡곡] 인기 메뉴 2인분 3종 (택1)
+                  </p>
+                </div>
+                <form class="cart-quantity-form">
+                  <button
+                    type="button"
+                    class="cart-quantity-decrease"
+                    aria-label="수량 내리기"
+                    disabled
+                  ></button>
+                  <div class="cart-quantity">1</div>
+                  <button
+                    type="button"
+                    class="cart-quantity-increase"
+                    aria-label="수량 올리기"
+                  ></button>
+                </form>
+
+                <div class="cart-prices">
+                  <span class="cart-price-discounted" aria-label="할인 가격"
+                    >7,425원</span
+                  >
+                  <span class="cart-price-original" aria-label="판매 가격"
+                    >9,900원</span
+                  >
+                </div>
+                <button
+                  type="button"
+                  class="cart-delete-button"
+                  aria-label="상품 삭제"
+                ></button>
               </li>
             </ul>
           </div>
 
-          <!-- 브랜드 -->
-          <div class="category-wrapper">
-            <div>
-              <button class="toggle-btn">
-                <span class="category-title">브랜드</span>
+          <!-- 냉동 상품 -->
+          <div class="cart-product">
+            <div class="cart-product_top">
+              <div class="cart-product_data">
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgzMHYzMEgweiIvPgogICAgICAgIDxwYXRoIGQ9Ik0xNS4wNDQgNGEuNzUuNzUgMCAwIDEgLjc0NC42NDhsLjAwNi4xMDJ2Mi42ODlsMS43Mi0xLjcyYS43NS43NSAwIDAgMSAuOTc3LS4wNzJsLjA4NC4wNzNhLjc1Ljc1IDAgMCAxIC4wNzIuOTc2bC0uMDcyLjA4NC0yLjc4IDIuNzgtLjAwMSA0LjM5IDMuODAyLTIuMTk0IDEuMDE4LTMuNzk4YS43NS43NSAwIDAgMSAxLjQ3LjI3OWwtLjAyLjEwOS0uNjMgMi4zNSAyLjMyOS0xLjM0NmEuNzUuNzUgMCAwIDEgLjgzNCAxLjI0M2wtLjA4NC4wNTctMi4zMjggMS4zNDQgMi4zNDguNjNhLjc1Ljc1IDAgMCAxIC41NS44MDlsLS4wMi4xMWEuNzUuNzUgMCAwIDEtLjgxLjU1bC0uMTA4LS4wMi0zLjc5OC0xLjAxOC0zLjgwMyAyLjE5NCAzLjgwMiAyLjE5NiAzLjc5OS0xLjAxOGEuNzUuNzUgMCAwIDEgLjQ5MyAxLjQxM2wtLjEwNS4wMzYtMi4zNS42MyAyLjMzIDEuMzQ0YS43NS43NSAwIDAgMS0uNjU5IDEuMzQ0bC0uMDkxLS4wNDQtMi4zMjgtMS4zNDQuNjI4IDIuMzQ4YS43NS43NSAwIDAgMS0uNDI1Ljg4MmwtLjEwNS4wMzdhLjc1Ljc1IDAgMCAxLS44ODItLjQyNmwtLjAzNy0uMTA1LTEuMDE3LTMuNzk3LTMuODAzLTIuMTk3djQuMzkxbDIuNzggMi43OGEuNzUuNzUgMCAwIDEtLjk3NiAxLjEzNGwtLjA4NC0uMDczLTEuNzItMS43MnYyLjY5YS43NS43NSAwIDAgMS0xLjQ5My4xMDJsLS4wMDctLjEwMnYtMi42ODhsLTEuNzIgMS43MThhLjc1Ljc1IDAgMCAxLS45NzYuMDczbC0uMDg0LS4wNzNhLjc1Ljc1IDAgMCAxLS4wNzMtLjk3NmwuMDczLS4wODQgMi43OC0yLjc4di00LjM5MWwtMy44MDEgMi4xOTUtMS4wMTggMy43OThhLjc1Ljc1IDAgMCAxLTEuNDctLjI3OWwuMDItLjEwOS42My0yLjM1LTIuMzI5IDEuMzQ2YS43NS43NSAwIDAgMS0uODM1LTEuMjQzbC4wODUtLjA1NyAyLjMyOC0xLjM0NC0yLjM0OC0uNjNhLjc1Ljc1IDAgMCAxLS41NTEtLjgwOWwuMDItLjExYS43NS43NSAwIDAgMSAuODEtLjU1bC4xMS4wMiAzLjc5NyAxLjAxOCAzLjgwMi0yLjE5NS0zLjgwMS0yLjE5NS0zLjc5OSAxLjAxOGEuNzUuNzUgMCAwIDEtLjQ5My0xLjQxM2wuMTA1LS4wMzYgMi4zNS0uNjMtMi4zMy0xLjM0NGEuNzUuNzUgMCAwIDEgLjY1OS0xLjM0NGwuMDkxLjA0NCAyLjMyOCAxLjM0NC0uNjI4LTIuMzQ4YS43NS43NSAwIDAgMSAuNDI1LS44ODJsLjEwNS0uMDM3YS43NS43NSAwIDAgMSAuODgyLjQyNmwuMDM3LjEwNSAxLjAxNyAzLjc5NyAzLjgwMiAyLjE5NnYtNC4zOWwtMi43OC0yLjc4YS43NS43NSAwIDAgMSAuOTc3LTEuMTM0bC4wODQuMDczIDEuNzIgMS43MTlWNC43NWEuNzUuNzUgMCAwIDEgLjc1LS43NXoiIGZpbGw9IiM2RkFGRjMiIGZpbGwtcnVsZT0ibm9uemVybyIvPgogICAgPC9nPgo8L3N2Zz4K"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+                <h3>냉동 상품</h3>
+              </div>
+              <button class="cart-toggle-button" aria-label="접기/펼치기">
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZGVmcz4KICAgICAgICA8cGF0aCBpZD0iN2EwMnFxZzNqYSIgZD0iTTExIDEyaDl2OSIvPgogICAgPC9kZWZzPgogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8cGF0aCBkPSJNMCAwaDMwdjMwSDB6Ii8+CiAgICAgICAgPHVzZSBzdHJva2U9IiMzMzMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ1IDE1LjUgMTYuNSkiIHhsaW5rOmhyZWY9IiM3YTAycXFnM2phIi8+CiAgICA8L2c+Cjwvc3ZnPgo="
+                  alt="접기"
+                />
               </button>
             </div>
 
-            <ul class="product-list_nav">
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="brand-check01" />
-                <label for="brand-check01" class="checkbox-label">
-                  <span class="filter_accordion-name">감자밭</span>
-                  <span class="filter_accordion-amount">1</span>
+            <ul class="cart-product-list">
+              <li class="cart-product-item">
+                <input type="checkbox" id="product-checkbox-2" />
+                <label for="product-checkbox-2">
+                  <img
+                    src="https://product-image.kurly.com/product/image/1b2fd7b6-32ad-4c9f-9303-6894b2a8bfb9.jpeg"
+                    alt="상품 이미지"
+                    width="60"
+                    height="78"
+                  />
                 </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="brand-check02" />
-                <label for="brand-check02" class="checkbox-label">
-                  <span class="filter_accordion-name">강남면옥</span>
-                  <span class="filter_accordion-amount">1</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="brand-check03" />
-                <label for="brand-check03" class="checkbox-label">
-                  <span class="filter_accordion-name">경남제약</span>
-                  <span class="filter_accordion-amount">1</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="brandcheck04" />
-                <label for="brand-check04" class="checkbox-label">
-                  <span class="filter_accordion-name">경복궁</span>
-                  <span class="filter_accordion-amount">1</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="brand-check05" />
-                <label for="brand-check05" class="checkbox-label">
-                  <span class="filter_accordion-name">고래사</span>
-                  <span class="filter_accordion-amount">1</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="brand-check06" />
-                <label for="brand-check06" class="checkbox-label">
-                  <span class="filter_accordion-name">고메공방</span>
-                  <span class="filter_accordion-amount">1</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="brand-check07" />
-                <label for="brand-check07" class="checkbox-label">
-                  <span class="filter_accordion-name">고온어다이어트</span>
-                  <span class="filter_accordion-amount">1</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="brand-check08" />
-                <label for="brand-check08" class="checkbox-label">
-                  <span class="filter_accordion-name">교토마블</span>
-                  <span class="filter_accordion-amount">1</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="brand-check09" />
-                <label for="brand-check09" class="checkbox-label">
-                  <span class="filter_accordion-name">그래놀라 하우스</span>
-                  <span class="filter_accordion-amount">1</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="brand-check10" />
-                <label for="brand-check10" class="checkbox-label">
-                  <span class="filter_accordion-name">그리츠 시그니처 램</span>
-                  <span class="filter_accordion-amount">1</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-more">
-                <span class="filter_accordion-amount">브랜드 더보기 ></span>
+                <div class="cart-product-details">
+                  <p class="cart-product-name">[미트클레버] 대구막창</p>
+                  <p class="cart-product-description">
+                    바삭하게 구워 막장에 찍어 먹는 별미
+                  </p>
+                </div>
+                <form class="cart-quantity-form">
+                  <button
+                    type="button"
+                    class="cart-quantity-decrease"
+                    aria-label="수량 내리기"
+                    disabled
+                  ></button>
+                  <div class="cart-quantity">1</div>
+                  <button
+                    type="button"
+                    class="cart-quantity-increase"
+                    aria-label="수량 올리기"
+                  ></button>
+                </form>
+
+                <div class="cart-prices">
+                  <span class="cart-price-discounted" aria-label="할인 가격"
+                    >15,940원</span
+                  >
+                  <span class="cart-price-original" aria-label="판매 가격"
+                    >19,900원</span
+                  >
+                </div>
+                <button
+                  type="button"
+                  class="cart-delete-button"
+                  aria-label="상품 삭제"
+                ></button>
               </li>
             </ul>
           </div>
 
-          <!-- 가격 -->
-          <div class="category-wrapper">
-            <div class="category-header">
-              <button class="toggle-btn">
-                <span class="category-title">가격</span>
+          <!-- 상온 상품 -->
+          <div class="cart-product">
+            <div class="cart-product_top">
+              <div class="cart-product_data">
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgzMHYzMEgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMuNSA0KSIgc3Ryb2tlPSIjRkY5QjVDIiBzdHJva2Utd2lkdGg9IjEuNSI+CiAgICAgICAgICAgIDxjaXJjbGUgY3g9IjExLjUiIGN5PSIxMSIgcj0iNiIvPgogICAgICAgICAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Ik0xMS41IDB2Mk0xOS4yNzggMy4yMjJsLTEuNDE0IDEuNDE0TTIyLjUgMTFoLTJNMTkuMjc4IDE4Ljc3OGwtMS40MTQtMS40MTRNMTEuNSAyMnYtMk0zLjcyMiAxOC43NzhsMS40MTQtMS40MTRNLjUgMTFoMk0zLjcyMiAzLjIyMmwxLjQxNCAxLjQxNCIvPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+                <h3>상온 상품</h3>
+              </div>
+              <button class="cart-toggle-button" aria-label="접기/펼치기">
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZGVmcz4KICAgICAgICA8cGF0aCBpZD0iN2EwMnFxZzNqYSIgZD0iTTExIDEyaDl2OSIvPgogICAgPC9kZWZzPgogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8cGF0aCBkPSJNMCAwaDMwdjMwSDB6Ii8+CiAgICAgICAgPHVzZSBzdHJva2U9IiMzMzMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ1IDE1LjUgMTYuNSkiIHhsaW5rOmhyZWY9IiM3YTAycXFnM2phIi8+CiAgICA8L2c+Cjwvc3ZnPgo="
+                  alt="접기"
+                />
               </button>
             </div>
 
-            <ul class="product-list_nav">
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="price-check01" />
-                <label for="price-check01" class="checkbox-label">
-                  <span class="filter_accordion-name">7,900원 미만</span>
-                  <span class="filter_accordion-amount">71</span>
+            <ul class="cart-product-list">
+              <li class="cart-product-item">
+                <input type="checkbox" id="product-checkbox-3" />
+                <label for="product-checkbox-3">
+                  <img
+                    src="https://product-image.kurly.com/cdn-cgi/image/width=120,height=156,fit=crop,quality=85/product/image/300519a9-ba1d-4ada-9ed2-6990916c868d.jpg"
+                    alt="상품 이미지"
+                    width="60"
+                    height="78"
+                  />
                 </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="price-check02" />
-                <label for="price-check02" class="checkbox-label">
-                  <span class="filter_accordion-name">7,900원 ~ 11,800원</span>
-                  <span class="filter_accordion-amount">78</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="pricecheck03" />
-                <label for="price-check03" class="checkbox-label">
-                  <span class="filter_accordion-name">11,800원 ~ 15,900원</span>
-                  <span class="filter_accordion-amount">73</span>
-                </label>
-              </li>
+                <div class="cart-product-details">
+                  <p class="cart-product-name">
+                    [KS365] 3겹 천연펄프 화장지 (27m X 30롤)
+                  </p>
+                  <p class="cart-product-description">
+                    1롤 : 377원 / 부담 없이 사용하는 탄탄한 화장지
+                  </p>
+                </div>
+                <form class="cart-quantity-form">
+                  <button
+                    type="button"
+                    class="cart-quantity-decrease"
+                    aria-label="수량 내리기"
+                    disabled
+                  ></button>
+                  <div class="cart-quantity">1</div>
+                  <button
+                    type="button"
+                    class="cart-quantity-increase"
+                    aria-label="수량 올리기"
+                  ></button>
+                </form>
 
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="price-check07" />
-                <label for="price-check07" class="checkbox-label">
-                  <span class="filter_accordion-name">15,900원 이상</span>
-                  <span class="filter_accordion-amount">76</span>
-                </label>
+                <div class="cart-prices">
+                  <span class="cart-price-discounted" aria-label="할인 가격"
+                    >11,000원</span
+                  >
+                  <span class="cart-price-original" aria-label="판매 가격"
+                    >11,900원</span
+                  >
+                </div>
+                <button
+                  type="button"
+                  class="cart-delete-button"
+                  aria-label="상품 삭제"
+                ></button>
               </li>
             </ul>
           </div>
 
-          <!-- 혜택 -->
-          <div class="category-wrapper">
-            <div class="category-header">
-              <button class="toggle-btn">
-                <span class="category-title">혜택</span>
-              </button>
+          <div class="cart-select-options">
+            <div class="cart-select-form">
+              <input type="checkbox" id="select-all-checkbox" />
+              <label for="select-all-checkbox">전체선택 (2/2)</label>
             </div>
-
-            <ul class="product-list_nav">
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="benefit-check04" />
-                <label for="benefit-check04" class="checkbox-label">
-                  <span class="filter_accordion-name">할인 상품</span>
-                  <span class="filter_accordion-amount">130</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="benefit-check05" />
-                <label for="benefit-check05" class="checkbox-label">
-                  <span class="filter_accordion-name">한정 수량</span>
-                  <span class="filter_accordion-amount">2</span>
-                </label>
-              </li>
-            </ul>
-          </div>
-
-          <!-- 유형-->
-          <div class="category-wrapper">
-            <div class="category-header">
-              <button class="toggle-btn">
-                <span class="category-title">유형</span>
-              </button>
-            </div>
-
-            <ul class="product-list_nav">
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="typec-heck01" />
-                <label for="type-check01" class="checkbox-label">
-                  <span class="filter_accordion-name">Karly Only</span>
-                  <span class="filter_accordion-amount">106</span>
-                </label>
-              </li>
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="type-check02" />
-                <label for="type-check02" class="checkbox-label">
-                  <span class="filter_accordion-name">희소가치 프로젝트</span>
-                  <span class="filter_accordion-amount">8</span>
-                </label>
-              </li>
-            </ul>
-          </div>
-
-          <!-- 특정 상품 제외 -->
-          <div class="category-wrapper">
-            <div class="category-header">
-              <button class="toggle-btn">
-                <span class="category-title">특정상품 제외</span>
-              </button>
-            </div>
-
-            <ul class="product-list_nav">
-              <li tabindex="0" class="filter_accordion-list">
-                <input type="checkbox" id="product-check01" />
-                <label for="product-check01" class="checkbox-label">
-                  <span class="filter_accordion-name">반려동물 상품</span>
-                  <span class="filter_accordion-amount">5</span>
-                </label>
-              </li>
-            </ul>
+            <span>|</span>
+            <button class="cart-delete-selected-button">선택삭제</button>
           </div>
         </div>
 
-        <!-- section 2 -->
-        <div class="best-wrapper">
-          <div class="best-nav">
-            <p class="best-total_amount">총 284건</p>
-            <ul class="best-list">
-              <li><a href="#" class="sort-option">추천순</a></li>
-              <li><a href="#" class="sort-option">신상품순</a></li>
-              <li><a href="#" class="sort-option">판매량순</a></li>
-              <li><a href="#" class="sort-option">혜택순</a></li>
-              <li><a href="#" class="sort-option">낮은 가격순</a></li>
-              <li><a href="#" class="sort-option">높은 가격순</a></li>
-            </ul>
-          </div>
+        <!-- 배송 섹션 -->
+        <article class="delivery-section">
+          <div class="delivery-container">
+            <div class="delivery-info">
+              <h3>배송지</h3>
+              <address>서울특별시 중랑구 봉화산로 179 (신내동)</address>
+              <div class="delivery-type">
+                <span type="direct">샛별배송</span>
+              </div>
+              <button class="change-delivery-button" type="button">
+                <span>배송지 변경</span>
+              </button>
+            </div>
+            <div class="order-summary">
+              <div class="summary__item">
+                <span class="summary__label">상품금액</span>
+                <span class="summary__value"
+                  ><span class="summary__amount">124,000</span
+                  ><span class="summary__unit">원</span></span
+                >
+              </div>
+              <div class="summary__item">
+                <span class="summary__label">상품할인금액</span>
+                <span class="summary__value"
+                  ><span class="summary__amount">-27,090</span
+                  ><span class="summary__unit">원</span></span
+                >
+              </div>
+              <div class="summary__item">
+                <span class="summary__label">배송비</span>
+                <span class="summary__value"
+                  ><span class="summary__amount">0</span
+                  ><span class="summary__unit">원</span></span
+                >
+              </div>
+              <div class="summary__payment">
+                <span class="summary__label">결제예정금액</span>
+                <span class="payment__amount">
+                  <strong
+                    ><span class="payment__value">96,910</span
+                    ><span class="payment__currency">원</span></strong
+                  >
+                </span>
+              </div>
 
-          <!-- 상품 리스트 -->
-          <div class="best-container"><!--동적 생성 --></div>
-
-          <!-- 페이지 네이션 -->
-          <div class="best-pagenation">
-            <button class="pg-btn">
-              <img
-                src="../assets/icons/page-left01.png"
-                alt="처음 페이지로 이동 "
-              />
-            </button>
-            <button class="pg-btn">
-              <img
-                src="../assets/icons/page-left02.png"
-                alt="이전 페이지로 이동 "
-              />
-            </button>
-            <a href="#" class="pg-btn">1</a>
-            <a href="#" class="pg-btn">2</a>
-            <a href="#" class="pg-btn">3</a>
-            <button class="pg-btn">
-              <img
-                src="../assets/icons/page-right01.png"
-                alt="다음 페이지로 이동"
-              />
-            </button>
-            <button class="pg-btn">
-              <img
-                src="../assets/icons/page-right02.png"
-                alt="마지막 페이지로 이동"
-              />
-            </button>
+              <div class="summary__savings">
+                <span class="savings__label">적립</span>
+                <span class="savings__details">최대 36원 적립 일반 0.1%</span>
+              </div>
+            </div>
           </div>
-        </div>
+        </article>
       </div>
     </section>
-    <!-- ---------------------- Cart Popup ------------------------------>
-    <div
-      role="dialog"
-      aria-labelledby="cartPopupTitle"
-      class="cart-popup_wrapper"
-    >
-      <!--동적 생성 -->
-    </div>
 
     <!-- ---------------------------- Footer start ----------------------------- -->
     <footer class="footer common">

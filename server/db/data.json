@@ -97,17 +97,17 @@
     },
     {
       "id": "product-aaaa",
-      "name": "유명산지 설향딸기 500g",
-      "description": "유명산지에서 전하는 제철 딸기",
-      "price": 11900,
-      "saleRatio": 0.07,
-      "salePrice": 10990,
+      "name": "[미트클레버] 대구막창",
+      "description": "바삭하게 구워 막장에 찍어 먹는 별미",
+      "price": 19900,
+      "saleRatio": 0.19,
+      "salePrice": 15940,
       "image": {
-        "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1608801577622l0.jpg",
-        "view": "bacon/detail-view.jpg",
-        "banner": "bacon/detail_banner.jpg",
-        "info": "bacon/detail_info.jpg",
-        "alt": "유명산지 설향딸기 500g"
+        "thumbnail": "https://product-image.kurly.com/product/image/1b2fd7b6-32ad-4c9f-9303-6894b2a8bfb9.jpeg",
+        "view": "https://img-cf.kurly.com/shop/data/goodsview/20180426/gv10000022154_1.jpg",
+        "banner": "https://img-cf.kurly.com/shop/data/goodsview/20180426/gv30000022156_1.jpg",
+        "info": "https://img-cf.kurly.com/shop/data/goodsview/20230627/gv10000707194_1.jpg",
+        "alt": "미트클레버, 대구막창"
       },
       "stock": 13,
       "category": "과일ㆍ견과ㆍ쌀",

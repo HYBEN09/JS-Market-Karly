@@ -1,0 +1,376 @@
+.cart {
+  width: 1050px;
+  margin: 0px auto;
+  padding-bottom: 80px;
+}
+
+.cart h2 {
+  padding: 50px 0px 48px;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 35px;
+  text-align: center;
+}
+
+.cart__content {
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: -0.5px;
+}
+
+.cart__header {
+  width: 742px;
+}
+
+.cart__select-all {
+  font-size: var(--text-sm);
+  line-height: 26px;
+  font-weight: 500;
+  padding: 18px 10px 16px 2px;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.cart__select-all label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: top;
+  line-height: 26px;
+  padding: 0px;
+  color: var(--gray-500);
+}
+
+.cart__select-all label span {
+  font-size: 16px;
+  line-height: 26px;
+  padding-left: 10px;
+  color: var(--gray-500);
+}
+
+.cart__divider {
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+}
+
+.cart__delete-selected {
+  overflow: visible;
+  font-size: 16px;
+}
+
+/* ---------------------- 냉장 상품 ---------------------- */
+
+.cart-product-list {
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.cart-product_top {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  padding: 15px 5px 15px 0px;
+  border-top: 1px solid var(--gray-500);
+  font-weight: 700;
+  font-size: var(--text-md);
+  line-height: 26px;
+}
+
+.cart-product_data {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-toggle-button {
+  border: 0px;
+  background: none;
+  outline: none;
+}
+
+.cart-product-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 20px 0px;
+}
+
+.cart-product-item input {
+  padding: 0 5px;
+  margin-right: 8px;
+}
+
+.cart-product-item label {
+  display: inline-block;
+  width: 60px;
+  height: 78px;
+  margin-right: 8px;
+}
+
+.cart-product-details {
+  display: flex;
+  flex-direction: column;
+  width: 345px;
+  margin-right: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+}
+
+.cart-product-name {
+  max-height: 54px;
+  padding-top: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  display: -webkit-box;
+  overflow: hidden;
+  word-break: break-all;
+  white-space: normal;
+}
+
+.cart-product-description {
+  max-height: 38px;
+  margin-top: 8px;
+  font-size: var(--text-sm);
+  line-height: 19px;
+  color: rgb(153, 153, 153);
+  display: -webkit-box;
+  overflow: hidden;
+  word-break: break-all;
+  white-space: normal;
+}
+
+.cart-quantity-form {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid rgb(221, 223, 225);
+  width: 88px;
+  border-radius: 3px;
+}
+
+.cart-quantity-decrease {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  border: none;
+  font-size: 1px;
+  color: transparent;
+  background-size: cover;
+  background-color: transparent;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0yMCAxNHYySDEwdi0yeiIgZmlsbD0iI0RERCIgZmlsbC1ydWxlPSJub256ZXJvIi8+Cjwvc3ZnPgo=);
+  vertical-align: top;
+}
+
+.cart-quantity {
+  font-weight: 400;
+  color: var(--gray-500);
+  display: inline-flex;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-box-pack: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+
+  text-align: center;
+  width: 31px;
+  height: 28px;
+  line-height: 28px;
+}
+
+.cart-quantity-increase {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  border: none;
+  font-size: 1px;
+  color: transparent;
+  background-size: cover;
+  background-color: transparent;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xNiAxMHY0aDR2MmgtNHY0aC0ydi00aC00di0yaDR2LTRoMnoiIGZpbGw9IiMzMzMiIGZpbGwtcnVsZT0ibm9uemVybyIvPgo8L3N2Zz4K);
+  vertical-align: top;
+}
+
+.cart-prices {
+  display: flex;
+  flex-direction: column;
+  width: 127px;
+  text-align: right;
+  word-break: break-all;
+}
+
+.cart-price-discounted {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--gray-500);
+}
+
+.cart-price-original {
+  font-size: var(--text-sm);
+  line-height: 24px;
+  color: var(--gray-200);
+  text-decoration: line-through;
+  padding-top: 4px;
+}
+
+.cart-delete-button {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0yMSA5Ljc2MiAyMC4yMzggOSAxNSAxNC4yMzggOS43NjIgOSA5IDkuNzYyIDE0LjIzOCAxNSA5IDIwLjIzOGwuNzYyLjc2MkwxNSAxNS43NjIgMjAuMjM4IDIxbC43NjItLjc2MkwxNS43NjIgMTV6IiBmaWxsPSIjQ0NDIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4KPC9zdmc+Cg==);
+  background-size: cover;
+  background-position: center center;
+  font-size: var(--text-sm);
+  color: var(--content);
+  padding-left: 8px;
+  margin-left: 22px;
+}
+
+.cart-select-options {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  font-size: var(--text-sm);
+  line-height: 26px;
+  font-weight: 500;
+}
+
+.cart-select-form {
+  display: flex;
+  align-items: center;
+  font-size: var(--text-sm);
+  line-height: 26px;
+  padding-right: 8px;
+}
+
+.cart-select-form input {
+  margin-right: 12px;
+  margin-top: 4px;
+}
+
+.cart-select-options span {
+  color: var(--content);
+  margin: 0px 22px;
+}
+
+.cart-delete-selected-button {
+  font-weight: 600;
+  margin-top: 4px;
+  color: var(--content);
+}
+
+/* ---------------- 배송 섹션 --------------- */
+
+.delivery-section {
+  position: relative;
+  width: 284px;
+  min-height: 942px;
+}
+
+.delivery-container {
+  position: absolute;
+  width: 284px;
+  padding-top: 60px;
+}
+
+.delivery-info {
+  padding: 23px 19px 20px;
+  border: 1px solid rgb(242, 242, 242);
+  border-width: 1px 1px 0px 1px;
+}
+
+.delivery-info h3 {
+  padding-left: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  background: url(https://res.kurly.com/pc/service/cart/2007/ico_location.svg)
+    0px 50% / 20px 20px no-repeat;
+}
+
+.delivery-info address {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  word-break: break-word;
+}
+
+.delivery-type {
+  padding: 7px 0px 12px;
+  font-size: var(--text-sm);
+}
+
+.delivery-type span {
+  color: rgb(95, 0, 128);
+  font-size: var(--text-sm);
+}
+
+.change-delivery-button {
+  display: block;
+  padding: 0px 10px;
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  height: 36px;
+  border-radius: 3px;
+  color: rgb(95, 0, 128);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(95, 0, 128);
+}
+
+.order-summary {
+  padding: 19px 18px 18px 20px;
+  border: 1px solid rgb(242, 242, 242);
+  background-color: rgb(250, 250, 250);
+}
+
+.summary__item {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+}
+
+.summary__label {
+  width: 100px;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.summary__value {
+  font-size: var(--text-md);
+  line-height: 24px;
+  text-align: right;
+}
+
+.summary__payment {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 18px;
+  border-top: 1px solid rgb(244, 244, 244);
+}
+
+.summary__savings {
+  padding-top: 15px;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: right;
+}
+
+.savings__label {
+  display: inline-block;
+  height: 18px;
+  margin-right: 4px;
+  padding: 0px 6px;
+  border: 1px solid rgb(255, 191, 1);
+  border-radius: 9px;
+  background-color: rgb(255, 191, 0);
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  color: rgb(255, 255, 255);
+}
