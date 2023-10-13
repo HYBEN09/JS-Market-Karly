@@ -43,7 +43,7 @@
 }
 
 .cart-button {
-  background: url('../../assets/mainImg/cart.png') no-repeat;
+  background: url('../../assets/icons/cart.png') no-repeat;
   width: 45px;
   height: 45px;
   cursor: pointer;
