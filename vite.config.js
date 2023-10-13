@@ -19,6 +19,7 @@ export default defineConfig({
           __dirname,
           'client/pages/productBenefit.html'
         ),
+        cart: path.resolve(__dirname, 'client/pages/cart.html'),
       },
     },
   },
