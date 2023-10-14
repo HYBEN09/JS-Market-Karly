@@ -1,5 +1,5 @@
-![image](https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/f6575ab7-6048-4ad7-b752-efacd6343bfa)
-
+  <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/bcae301c-72aa-4e21-a44d-0287d1ad2ff0" width="900" height="600">
+  
 # Market-Karly
 
 ## 1. 프로젝트 소개
