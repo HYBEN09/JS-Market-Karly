@@ -74,7 +74,7 @@
           - 모든 유효성 검사를 통과하면 해당 필드 테두리 색상을 파란색으로 변경하고 오류 메시지를 제거</p>
       </td>
       <td width="600">
-          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/6c135bac-ae57-464e-b010-8dcb6b289881"/>
+          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/d579da55-accf-4c8c-9b42-d2fba121f80b"/>
       </td>        
     </tr>
     <tr>
@@ -85,8 +85,8 @@
         <p>3) 회원가입 완료시 이름 로컬 스토리지에 저장 </p>
       </td>
       <td width="600">
-             <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/18343fd0-0e12-4d0a-8242-976a2497b34a"/>   
-      </td>        
+             <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/bb225574-8c0d-4a43-b13a-e3e75f9c55dd"/>   
+      </td>  
     </tr>
   </table>
 </details>
@@ -102,7 +102,7 @@
         <p>2)모든 검사를 통과하면 '로그인 성공' 메시지를 보여주고 홈 페이지('/')로 이동 </p>
       </td>
       <td width="500">
-          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/765d1029-aa70-4564-9d9c-df8c60007524"/>
+          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/55509d94-3849-4420-a5c7-e1d1bce3c9d6"/>
       </td>        
     </tr>
     <tr>
@@ -114,7 +114,7 @@
          <p>2)로그아웃을 하면 로컬 스토리지에서 사용자 정보를 삭제</p>
       </td>
       <td width="500">
-          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/5885a9c1-2e7e-400c-ab60-c0aa2c6f0050"/>   
+          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/153beb16-ef7f-4a6d-9f78-0349c748f27a"/>   
       </td>        
     </tr>
   </table>
@@ -131,10 +131,10 @@
         <p>2)이벤트 리스너를 사용하여 각 토글 버튼이 클릭되었을 때 동작하도록 설정 </p>
       </td>
       <td width="500">
-          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/a8bc527e-8d6b-4f0b-8b26-3fb6fa097fe8"/>
+          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/d8d70280-ace7-4d6b-a83a-94729c83d21a"/>
       </td>        
     </tr>
-		   <tr>
+    <tr>
       <td width="500">
         <h4> ✅ 제품 나열</h4>
         <h5> 제품 리스트를 동적으로 생성 </h5>
@@ -144,8 +144,8 @@
 				<p>4)불러온 상품 데이터는 웹 페이지에 동적으로 나열되기 위해 HTML로 변환되고 화면에 표시</p>
       </td>
       <td width="500">
-          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/c054db68-62eb-4b48-91c7-d31db762a7cc"/>
-      </td>     
+          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/c81ffd41-2e2f-499a-bffa-1308f4de0c21"/>
+      </td>
     </tr>
 		<tr>
       <td width="500">
@@ -158,11 +158,12 @@
 		 	 	 <p>3)  특정 상품을 선택하여 '장바구니' 버튼을 클릭시 그 정보를 로컬 스토리지에 저장</p> 
       </td>
       <td width="500">
-          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/03298a0e-3eaf-4a51-81db-0e04a3f4a6a7"/>
+          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/f59e9eee-b60b-46e1-ba53-3c561e6fdfe2"/>
       </td>        
     </tr>
   </table>
 </details>
+
 
 
 
