@@ -29,13 +29,12 @@
   <table>
     <tr>
       <td width="300">
-        <h4>✅ 상단 헤더의 메뉴 </h4>
-        <h5>드롭다운 메뉴의 표시와 숨김을 제어하는 기능</h5>
-        <p>1) 클로저(closure)를 이용하여 자신의 스코프에 있는 isEnter 변수의 상태를 기억하고 변경</p>
-        <p>2) 'mouseover'와 'focus' 이벤트 발생 시에는 handler 함수가 실행되도록 설정, 'mouseout'와 'blur' 이벤트 발생 시에도 동일하게 처리</p>
+        <h4>✅ 상단 헤더 베너 </h4>
+        <h5> 상단 배너 닫는 기능</h5>
+        <p>1) 닫기 버튼 클릭시 상단 배너의 display 스타일 속성을 'none'으로 설정하여, 배너를 화면에서 숨김</p>
       </td>
       <td width="700">
-        <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/508de944-85df-4472-b020-4c096bef865a"/>
+        <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/47a29fa7-6939-466a-a2d7-8c629b6ad088"/>
       </td>        
     </tr>
     <tr>
@@ -46,8 +45,8 @@
         <p>2) 'mouseover'와 'focus' 이벤트 발생 시에는 handler 함수가 실행되도록 설정, 'mouseout'와 'blur' 이벤트 발생 시에도 동일하게 처리</p>
       </td>
       <td width="700">
-           <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/23de3391-e7d4-442c-8c31-60c17d1206f7"/>   
-      </td>        
+           <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/e657e58d-f59e-416d-a623-345e583ce78c"/>   
+      </td>       
     </tr>
     <tr>
       <td width="300">
@@ -56,12 +55,11 @@
         <p>1) 다음'과 '이전' 버튼을 사용하여 다음/이전 슬라이더 보여주기</p>
       </td>
       <td width="700">
-        <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/090d831f-8417-4e18-b455-e64f49b95b75"/>   
+        <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/2c75f8bd-65d2-4e5c-9062-d42845234a94"/>   
       </td>        
     </tr>
    </table>
 </details>
-
 
 <details>
   <summary>📃 회원가입 (회원가입 페이지)</summary>
