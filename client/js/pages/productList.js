@@ -287,11 +287,11 @@ function handleAddToCartClick(e) {
   closeCartPopup();
 }
 
-function handleCartButtonClick(event) {
-  event.preventDefault();
+function handleCartButtonClick(e) {
+  e.preventDefault();
 
   // 클릭한 버튼의 부모 요소(상품 요소)에서 data-id 값을 가져오기
-  const productId = event.currentTarget.closest('a').dataset.id;
+  const productId = e.currentTarget.closest('a').dataset.id;
 
   // products 배열에서 해당 id를 가진 상품 찾기
   const product = products.find((product) => product.id === productId);

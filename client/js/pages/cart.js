@@ -1,7 +1,9 @@
 import { getNode } from '../../lib/index.js';
 
 const cartProduct = getNode('.cart-product');
+const orderSummary = getNode('.order-summary');
 
+// 장바구니에서 특정 아이템 삭제
 function deleteItemFromCart(itemName) {
   let storedCart = JSON.parse(localStorage.getItem('cart')) || [];
   storedCart = storedCart.filter((item) => item.name !== itemName);
@@ -10,23 +12,21 @@ function deleteItemFromCart(itemName) {
   loadAndDisplayCart();
 }
 
-function loadAndDisplayCart() {
-  const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-
-  cartProduct.innerHTML = '';
-
-  // 장바구니가 비어 있는 경우
-  if (storedCart.length === 0) {
-    cartProduct.innerHTML = /*html*/ `
+// 장바구니가 비어있을 때 출력할 메시지 생성
+function displayEmptyMessage() {
+  cartProduct.innerHTML = /*html*/ `
       <div class="cart__message">
         <p>장바구니에 담긴 상품이 없습니다</p>
       </div>
     `;
-    return;
-  }
+}
 
-  storedCart.forEach((item) => {
-    const cartItemHTML = /*html*/ `
+// 각 상품에 대한 HTML 생성
+function createCartItemHTML(item, index) {
+  const displayedPricePerItem = item.salePrice ? item.salePrice : item.price;
+  const totalDisplayedPrice = displayedPricePerItem * item.quantity;
+
+  const cartItemHTML = /*html*/ `
       <div class="cart-product_top">
               <div class="cart-product_data">
                 <img
@@ -47,7 +47,7 @@ function loadAndDisplayCart() {
 
             <ul class="cart-product-list">
               <li class="cart-product-item">
-                <input type="checkbox" id="product-checkbox-1" />
+                <input type="checkbox" id="product-checkbox-${index}"  />
                 <label for="product-checkbox-1">
                   <img
                      src="${item.thumbnail}"
@@ -65,7 +65,6 @@ function loadAndDisplayCart() {
                     type="button"
                     class="cart-quantity-decrease"
                     aria-label="수량 내리기"
-                    disabled
                   ></button>
                   <div class="cart-quantity">${item.quantity}</div>
                   <button
@@ -77,7 +76,7 @@ function loadAndDisplayCart() {
 
                 <div class="cart-prices">
                   <span class="cart-price-discounted" aria-label="할인 가격"
-                    >${item.salePrice}원</span
+                    >${totalDisplayedPrice}원</span
                   >
                   <span class="cart-price-original" aria-label="판매 가격"
                     >${item.price}원</span
@@ -93,9 +92,119 @@ function loadAndDisplayCart() {
             </ul>
             `;
 
-    cartProduct.innerHTML += cartItemHTML;
+  cartProduct.innerHTML += cartItemHTML;
+}
+
+// 상품 정보 동적 구현
+function loadAndDisplayCart() {
+  const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  cartProduct.innerHTML = '';
+
+  // 장바구니가 비어 있는 경우
+  if (storedCart.length === 0) {
+    displayEmptyMessage();
+    return;
+  }
+
+  storedCart.forEach((item, index) => {
+    createCartItemHTML(item, index);
+  });
+
+  // "수량 증가" 버튼에 대한 이벤트 리스너 추가
+  Array.from(
+    cartProduct.getElementsByClassName('cart-quantity-increase')
+  ).forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const itemName = event.target
+        .closest('.cart-product-item')
+        .querySelector('.cart-product-name').textContent;
+      updateQuantity(itemName, +1);
+    });
+  });
+
+  // "수량 감소" 버튼에 대한 이벤트 리스너 추가
+  Array.from(
+    cartProduct.getElementsByClassName('cart-quantity-decrease')
+  ).forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const itemName = event.target
+        .closest('.cart-product-item')
+        .querySelector('.cart-product-name').textContent;
+      updateQuantity(itemName, -1);
+    });
   });
 }
+
+// 배송 정보 동적 구현
+function loadAndDisplayOrder() {
+  const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+  let totalAmount = 0;
+  let totalPrice = 0;
+  let totalDiscount = 0;
+
+  storedCart.forEach((item) => {
+    const displayedPricePerItem = item.salePrice ? item.salePrice : item.price;
+    const totalDisplayedPrice = displayedPricePerItem * item.quantity;
+    totalAmount += totalDisplayedPrice;
+    totalPrice += item.price * item.quantity;
+
+    if (item.salePrice) {
+      let discountPerItem = item.price - item.salePrice;
+      totalDiscount += discountPerItem * item.quantity;
+    }
+  });
+
+  const orderItemHTML = /*html*/ `
+          <div class="summary__item">
+                <span class="summary__label">상품금액</span>
+                <span class="summary__value">
+                <span class="summary__amount">${totalPrice}</span>
+                <span class="summary__unit">원</span></span>
+          </div>
+              <div class="summary__item">
+                <span class="summary__label">상품할인금액</span>
+                <span class="summary__value"
+                  ><span class="summary__amount">-${totalDiscount}</span
+                  ><span class="summary__unit">원</span></span
+                >
+              </div>
+              <div class="summary__item">
+                <span class="summary__label">배송비</span>
+                <span class="summary__value"
+                  ><span class="summary__amount">0</span
+                  ><span class="summary__unit">원</span></span
+                >
+              </div>
+              <div class="summary__payment">
+                <span class="summary__label">결제예정금액</span>
+                <span class="payment__amount">
+                  <strong
+                    > <span class="payment__value">${totalAmount}</span>
+                    <span class="payment__currency">원</span></strong
+                  >
+                </span>
+              </div>
+                <div class="summary__savings">
+                <span class="savings__label">적립</span>
+                <span class="savings__details">최대 36원 적립 일반 0.1%</span>
+              </div>
+              `;
+
+  orderSummary.innerHTML += orderItemHTML;
+}
+
+const updateQuantity = (name, delta) => {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let item = cart.find((item) => item.name === name);
+
+  if (item) {
+    item.quantity += delta;
+    if (item.quantity < 1) item.quantity = 1; // Ensure the quantity is at least 1
+    localStorage.setItem('cart', JSON.stringify(cart));
+    loadAndDisplayCart();
+  }
+};
 
 //상품 삭제
 function handleDeleteButtonClick(event) {
@@ -107,4 +216,5 @@ function handleDeleteButtonClick(event) {
 
 cartProduct.addEventListener('click', handleDeleteButtonClick);
 
+loadAndDisplayOrder();
 window.onload = loadAndDisplayCart;
