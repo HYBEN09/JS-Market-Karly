@@ -62,7 +62,7 @@
 </details>
 
 <details>
-  <summary>📃 회원가입 (회원가입 페이지)</summary>
+  <summary>📃 회원가입 (register 페이지)</summary>
   <table>
     <tr>
       <td width="400">
@@ -92,7 +92,7 @@
 </details>
 
 <details>
-  <summary>📃 로그인 (로그인 페이지)</summary>
+  <summary>📃 로그인 (login 페이지)</summary>
   <table>
     <tr>
       <td width="500">
@@ -121,7 +121,7 @@
 </details>
 
 <details>
-  <summary>📃 제품 (제품 리스트 페이지)</summary>
+  <summary>📃 제품 (productList 페이지)</summary>
   <table>
     <tr>
       <td width="500">
@@ -163,6 +163,51 @@
     </tr>
   </table>
 </details>
+
+<details>
+  <summary>📃 장바구니 (cart 페이지)</summary>
+  <table>
+    <tr>
+      <td width="500">
+        <h4> ✅ 장바구니 상품 추가 </h4>
+        <p>1)상품 페이지에서 '장바구니에 담기' 버튼을 클릭하면, 해당 상품의 정보가 localStorage의 'cart' 항목에 JSON 형태로 저장 </p>
+        <p>2)localStorage에서 'cart' 항목의 값을 가져와 파싱 후, 각 아이템에 대해 createCartItemHTML 함수를 호출하여 HTML 생성하고 화면에 추가 </p>
+      </td>
+      <td width="500">
+          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/b03d0e54-5c4f-4a6f-becd-20afd9d7b824"/>
+      </td>        
+    </tr>
+    <tr>
+      <td width="500">
+        <h4> ✅ 상품 수량 조정 / 삭제</h4>
+        <p>1) 장바구니에 담긴 상품의 수량을 증가하거나 감소 </p>
+        <p>2) localStorage에 저장된 상품 데이터의 수량을 변경 </p>
+        <p>3)'삭제' 버튼을 클릭하면 해당 상품이 장바구니 목록에서 제거</p>
+        <p>4) localStorage에 저장된 상품 데이터를 삭제 </p>
+      </td>
+      <td width="500">
+          <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/aa1db082-a8cc-45e5-b901-4182a85e8f8a"/>
+      </td>
+    </tr>
+  </table>
+</details>
+
+
+<details>
+  <summary>📃 특가/헤택 (productBenefit 페이지) </summary>
+  <table>
+    <tr>
+      <td width="300">
+        <h4>✅ 특가/헤택 </h4>
+        <h5> 특가/헤택 베너</h5>
+      </td>
+      <td width="700">
+        <img src="https://github.com/HYBEN09/JS-Market-Karly/assets/104710243/61bc1d9c-7fe7-48a3-a279-dffc8b9478ef"/>
+      </td>        
+    </tr>
+   </table>
+</details>
+
 
 
 
