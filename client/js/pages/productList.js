@@ -113,9 +113,8 @@ function loadAndDisplayProducts() {
   fetch('http://localhost:5000/products')
     .then((response) => response.json())
     .then((data) => {
-      // 상품 데이터를 전역 변수에 저장
       products = data;
-
+      console.log(products);
       data.forEach((product) => {
         const productHTML = generateProductHTML(product);
         bestContainer.innerHTML += productHTML;
@@ -246,44 +245,45 @@ function initializeCartButtons() {
 }
 
 // 장바구니 버튼에 이벤트 리스너를 추가하는 함수
-function handleAddToCartClick(event) {
-  event.preventDefault();
+function handleAddToCartClick(e) {
+  e.preventDefault();
 
-  const popup = event.currentTarget.closest('.cart-popup');
+  const popup = e.currentTarget.closest('.cart-popup');
+
   const productId = popup.querySelector(
     '.cart-popup_content-title span'
   ).textContent;
+
   const price = parseInt(
     popup.querySelector('.cart-popup_product').textContent.replace('원', '')
   );
 
+  const product = products.find((item) => item.name === productId);
+
   const cartItem = {
     id: productId,
-    name: productId,
+    name: product.name,
     price: price,
-
+    salePrice: product.salePrice,
+    description: product.description,
+    thumbnail: product.image.thumbnail,
+    categoryImg: product.category.image,
+    categoryData: product.category.data,
     quantity: parseInt(
       popup.querySelector('.cart-popup_count-total').textContent
     ),
   };
 
-  // 이전에 저장된 카트 항목들을 가져오기
   let storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-
-  // 이미 카트에 같은 아이템이 있는지 확인
   let existingItem = storedCart.find((item) => item.id === cartItem.id);
 
   if (existingItem) {
-    // 이미 있는 아이템의 수량 증가
     existingItem.quantity += cartItem.quantity;
   } else {
-    // 카트에 없는 새로운 아이템 추가
     storedCart.push(cartItem);
   }
 
-  // 카트 정보를 로컬 스토리지에 저장
   localStorage.setItem('cart', JSON.stringify(storedCart));
-
   closeCartPopup();
 }
 

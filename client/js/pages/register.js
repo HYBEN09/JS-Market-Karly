@@ -186,15 +186,21 @@ function saveUserInfo() {
   const userNameValue = userName.value;
   const userPwValue = userPw.value;
 
-  const userInfo = {
-    id: userIdValue,
-    name: userNameValue,
-    password: userPwValue,
-  };
+  if (userIdValue && userNameValue && userPwValue) {
+    const userInfo = {
+      id: userIdValue,
+      name: userNameValue,
+      password: userPwValue,
+    };
 
-  localStorage.setItem('User', JSON.stringify(userInfo));
+    localStorage.setItem('User', JSON.stringify(userInfo));
 
-  alert('회원가입이 완료되었습니다.');
+    alert('회원가입이 완료되었습니다.');
+
+    window.location.href = '../../pages/login.html';
+  } else {
+    alert('모든 필수 정보를 입력하세요.');
+  }
 }
 
 signUpButton.addEventListener('click', () => saveUserInfo());
