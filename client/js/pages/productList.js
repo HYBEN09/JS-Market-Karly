@@ -108,20 +108,25 @@ function generateProductHTML(product) {
     </a>`;
 }
 
+// 개별 상품 데이터를 화면에 보여주는 함수
+function displayProduct(product) {
+  const productHTML = generateProductHTML(product);
+  bestContainer.innerHTML += productHTML;
+}
+
+// 상품 데이터를 화면에 보여주는 함수
+function displayProducts(data) {
+  products = data;
+  console.log(products);
+  data.forEach((product) => displayProduct(product));
+  initializeCartButtons();
+}
+
 // 상품 목록을 로드하고 표시하는 함수
 function loadAndDisplayProducts() {
   fetch('http://localhost:5000/products')
     .then((response) => response.json())
-    .then((data) => {
-      products = data;
-      console.log(products);
-      data.forEach((product) => {
-        const productHTML = generateProductHTML(product);
-        bestContainer.innerHTML += productHTML;
-      });
-
-      initializeCartButtons();
-    })
+    .then((data) => displayProducts(data))
     .catch((error) => console.error(error));
 }
 

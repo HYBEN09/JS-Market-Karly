@@ -3,15 +3,6 @@ import { getNode } from '../../lib/index.js';
 const cartProduct = getNode('.cart-product');
 const orderSummary = getNode('.order-summary');
 
-// 장바구니에서 특정 아이템 삭제
-function deleteItemFromCart(itemName) {
-  let storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-  storedCart = storedCart.filter((item) => item.name !== itemName);
-  localStorage.setItem('cart', JSON.stringify(storedCart));
-
-  loadAndDisplayCart();
-}
-
 // 장바구니가 비어있을 때 출력할 메시지 생성
 function displayEmptyMessage() {
   cartProduct.innerHTML = /*html*/ `
@@ -92,14 +83,12 @@ function createCartItemHTML(item, index) {
             </ul>
             `;
 
-  cartProduct.innerHTML += cartItemHTML;
+  return cartItemHTML;
 }
 
 // 상품 정보 동적 구현
 function loadAndDisplayCart() {
   const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-
-  cartProduct.innerHTML = '';
 
   // 장바구니가 비어 있는 경우
   if (storedCart.length === 0) {
@@ -107,33 +96,50 @@ function loadAndDisplayCart() {
     return;
   }
 
+  let cartItemsHTML = '';
+
   storedCart.forEach((item, index) => {
-    createCartItemHTML(item, index);
+    cartItemsHTML += createCartItemHTML(item, index);
   });
 
-  // "수량 증가" 버튼에 대한 이벤트 리스너 추가
+  cartProduct.innerHTML = cartItemsHTML;
+
+  addQuantityIncreaseListeners();
+  addQuantityDecreaseListeners();
+}
+
+// "수량 증가" 버튼에 대한 이벤트 리스너 추가
+function addQuantityIncreaseListeners() {
   Array.from(
     cartProduct.getElementsByClassName('cart-quantity-increase')
   ).forEach((button) => {
-    button.addEventListener('click', (event) => {
-      const itemName = event.target
-        .closest('.cart-product-item')
-        .querySelector('.cart-product-name').textContent;
-      updateQuantity(itemName, +1);
-    });
+    button.addEventListener('click', handleQuantityIncrease);
   });
+}
 
-  // "수량 감소" 버튼에 대한 이벤트 리스너 추가
+// "수량 감소" 버튼에 대한 이벤트 리스너 추가
+function addQuantityDecreaseListeners() {
   Array.from(
     cartProduct.getElementsByClassName('cart-quantity-decrease')
   ).forEach((button) => {
-    button.addEventListener('click', (event) => {
-      const itemName = event.target
-        .closest('.cart-product-item')
-        .querySelector('.cart-product-name').textContent;
-      updateQuantity(itemName, -1);
-    });
+    button.addEventListener('click', handleQuantityDecrease);
   });
+}
+
+// "수량 증가" 버튼 클릭 처리
+function handleQuantityIncrease(event) {
+  const itemName = event.target
+    .closest('.cart-product-item')
+    .querySelector('.cart-product-name').textContent;
+  updateQuantity(itemName, 1);
+}
+
+// "수량 감소" 버튼 클릭 처리
+function handleQuantityDecrease(event) {
+  const itemName = event.target
+    .closest('.cart-product-item')
+    .querySelector('.cart-product-name').textContent;
+  updateQuantity(itemName, -1);
 }
 
 // 배송 정보 동적 구현
@@ -194,13 +200,23 @@ function loadAndDisplayOrder() {
   orderSummary.innerHTML += orderItemHTML;
 }
 
+// 장바구니에서 특정 아이템 삭제
+function deleteItemFromCart(itemName) {
+  let storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+  storedCart = storedCart.filter((item) => item.name !== itemName);
+  localStorage.setItem('cart', JSON.stringify(storedCart));
+
+  loadAndDisplayCart();
+}
+
+// 상품 수량 업데이트
 const updateQuantity = (name, delta) => {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   let item = cart.find((item) => item.name === name);
 
   if (item) {
     item.quantity += delta;
-    if (item.quantity < 1) item.quantity = 1; // Ensure the quantity is at least 1
+    if (item.quantity < 1) item.quantity = 1;
     localStorage.setItem('cart', JSON.stringify(cart));
     loadAndDisplayCart();
   }
