@@ -2,8 +2,18 @@ import { getNode } from '../../lib/index.js';
 
 const cartProduct = getNode('.cart-product');
 
+function deleteItemFromCart(itemName) {
+  let storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+  storedCart = storedCart.filter((item) => item.name !== itemName);
+  localStorage.setItem('cart', JSON.stringify(storedCart));
+
+  loadAndDisplayCart();
+}
+
 function loadAndDisplayCart() {
   const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  cartProduct.innerHTML = '';
 
   // 장바구니가 비어 있는 경우
   if (storedCart.length === 0) {
@@ -77,6 +87,7 @@ function loadAndDisplayCart() {
                   type="button"
                   class="cart-delete-button"
                   aria-label="상품 삭제"
+                   data-item-name="${item.name}" 
                 ></button>
               </li>
             </ul>
@@ -85,5 +96,15 @@ function loadAndDisplayCart() {
     cartProduct.innerHTML += cartItemHTML;
   });
 }
+
+//상품 삭제
+function handleDeleteButtonClick(event) {
+  if (event.target.classList.contains('cart-delete-button')) {
+    const itemName = event.target.dataset.itemName;
+    deleteItemFromCart(itemName);
+  }
+}
+
+cartProduct.addEventListener('click', handleDeleteButtonClick);
 
 window.onload = loadAndDisplayCart;
