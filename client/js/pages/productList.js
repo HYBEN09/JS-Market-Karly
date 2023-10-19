@@ -145,9 +145,9 @@ function generateCartPopup(item) {
          <div class="cart-popup muiDialog-paper" role="document">
             <div class="cart-popup_content">
               <div class="cart-popup_content-top">
-                <h2 id="cartPopupTitle" class="cart-popup_content-title">
+                <p id="cartPopupTitle" class="cart-popup_content-title">
                   <span>${item.name}</span>
-                </h2>
+                </p>
                 <div class="cart-popup_content-count">
                   <p class="cart-popup_product">${item.price}원</p>
                   <div class="cart-popup_count-box">
@@ -236,11 +236,6 @@ function updateCartPopup(popup, item) {
   plusButton.addEventListener('click', handlePlusClick);
 }
 
-// 장바구니 취소 버튼 누를시 팝업창 닫히게 하는 함수
-function closeCartPopup() {
-  cartWrapper.classList.remove('show');
-}
-
 // 카트 버튼 클릭시 팝업 띄우기
 function initializeCartButtons() {
   let cartButtons = getNodes('.best-cart_btn');
@@ -248,6 +243,18 @@ function initializeCartButtons() {
     button.addEventListener('click', handleCartButtonClick)
   );
 }
+
+// 장바구니 취소 버튼 누를시 팝업창 닫히게 하는 함수
+function closeCartPopup() {
+  cartWrapper.classList.remove('show');
+}
+
+// ESC 키를 눌렀을 때 팝업 닫기
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    closeCartPopup();
+  }
+});
 
 // 장바구니 버튼에 이벤트 리스너를 추가하는 함수
 function handleAddToCartClick(e) {
