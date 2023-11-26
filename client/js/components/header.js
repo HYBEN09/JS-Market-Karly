@@ -19,16 +19,16 @@ document.addEventListener('DOMContentLoaded', setupCloseButton);
 /* -------------------------------------------------------------------------- */
 /*                                 공지사항 토글 메뉴                              */
 /* -------------------------------------------------------------------------- */
-const menuToggle = document.getElementById('menu-toggle');
-const dropdownMenu = getNode('.header__dropdown.menu');
+// const menuToggle = document.getElementById('menu-toggle');
+// const dropdownMenu = getNode('.header__dropdown.menu');
 
-dropdownMenu.addEventListener('mouseleave', () => {
-  dropdownMenu.style.display = 'none';
-});
+// dropdownMenu.addEventListener('mouseleave', () => {
+//   dropdownMenu.style.display = 'none';
+// });
 
-menuToggle.addEventListener('mouseenter', () => {
-  dropdownMenu.style.display = 'block';
-});
+// menuToggle.addEventListener('mouseenter', () => {
+//   dropdownMenu.style.display = 'block';
+// });
 
 /* -------------------------------------------------------------------------- */
 /*                            로그인 & 로그아웃 기능                               */
